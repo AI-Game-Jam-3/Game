@@ -41,6 +41,7 @@ public class AchievementSystem : MonoBehaviour
             var buttonObject = GameObject.Instantiate(button);
             buttonObject.name = "Achievement" + i.ToString();
             buttonObject.transform.SetParent(button.transform.parent);
+            buttonObject.transform.localScale = Vector3.one;
             buttonObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, - i * (buttonGap + buttonHeight) - buttonGap);
 
             if (achievements[i].Unlock) 
