@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MapUnit : MonoBehaviour
 {
+    public string UnitType;
     // Start is called before the first frame update
     void Start()
     {
