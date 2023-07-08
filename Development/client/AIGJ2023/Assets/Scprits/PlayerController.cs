@@ -30,6 +30,14 @@ public class PlayerController : MonoBehaviour
         {
             character.MoveDirection = Vector2.right;
         }
+        else if (Input.GetKeyDown(KeyCode.T))
+        {
+            character.SetGoingToShout(true);
+        }
+        else if(Input.GetKeyDown(KeyCode.Y))
+        {
+            character.SetGoingToShout(false);
+        }
         else
         {
             character.MoveDirection = Vector2.zero;

@@ -10,11 +10,17 @@ public class Character : MonoBehaviour
     [LabelText("原始位置")]
     public Vector3 OriginPos;
 
+    public bool IsGoingToShout;
+
     List<MapUnit> LightedUnitsCache;
+    public void SetGoingToShout(bool Shout)
+    {
+        IsGoingToShout = Shout;
+    }
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -24,7 +30,17 @@ public class Character : MonoBehaviour
         {
             Move();
             PostUpdateMapExplore();
+
         }
+
+        //if(IsGoingToShout)
+        //{
+         
+
+            // TODO 时间设置
+        //}
+
+        
     }
 
     public void Move()
@@ -58,12 +74,14 @@ public class Character : MonoBehaviour
         int CurY = (int)CharacterXY.y;
 
         //List<MapUnit> ExpolreUnits = MapManager.Instance.ExpolreNeighborKernel(7, CurX, CurY);
-        //List<MapUnit> LightedUnits = MapManager.Instance.GetLightedArea(3, CurX, CurY);
+        List<MapUnit> LightedUnits = MapManager.Instance.GetLightedArea(3, CurX, CurY);
         ////foreach (MapUnit unit in ExpolreUnits)
         ////{
         ////    Debug.Log("ExpolreUnit: " + unit.transform.position);
         ////}
         ////Debug.Log("=======================");
+
+
 
         List<MapUnit> ExpolreUnits = GetComponent<WaveShooter>().ShootRays(7);
 
@@ -75,33 +93,78 @@ public class Character : MonoBehaviour
                 {
                     if (unit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
                     {
-                        if(unit.bIsWall)
+                        Color color = Color.black;
+
+                        if (unit.bIsWall)
                         {
-                            spriteRenderer.color = Color.blue;
+                            color.a = 1;
+                            spriteRenderer.color = color;
+                            //spriteRenderer.color = Color.blue;
                         }
                         else
                         {
-                            spriteRenderer.color = Color.white;
+                            color.a = 1;
+                            spriteRenderer.color = color;
+                            //spriteRenderer.color = Color.white;
                         }
-                        
+
                     }
                 }
             }
         }
-        
+
 
         foreach (MapUnit unit in ExpolreUnits)
         {
             Debug.Log("LightedUnits: " + unit.transform.position);
-            if(unit!=null)
+            if (unit != null)
             {
-                if(unit.TryGetComponent<SpriteRenderer>(out  SpriteRenderer spriteRenderer))
+                if (unit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
                 {
-                    spriteRenderer.color = Color.yellow;   
+                    Color color = Color.white;
+
+                    if (unit.bIsWall)
+                    {
+                        color.a = 1;
+                        spriteRenderer.color = color;
+                    }
+                    else
+                    {
+                        color.a = 0;
+                        spriteRenderer.color = color;
+                    }
                 }
             }
         }
         LightedUnitsCache = ExpolreUnits;
+
+        foreach (MapUnit proctectedUnit in LightedUnits)
+        {
+            if (proctectedUnit != null)
+            {
+                if (proctectedUnit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
+                {
+                    Color color = Color.white;
+
+                    if (proctectedUnit.bIsWall)
+                    {
+                        color.a = 1;
+                        spriteRenderer.color = color;
+                    }
+                    else
+                    {
+                        color.a = 0;
+                        spriteRenderer.color = color;
+                    }
+                }
+                LightedUnitsCache.Add(proctectedUnit);
+            }
+        }
+
+        
+
+        
+
 
 
     }
