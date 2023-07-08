@@ -239,6 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 1
   UnitType: Wall
 --- !u!212 &45642367
 SpriteRenderer:
@@ -302,6 +303,7 @@ GameObject:
   - component: {fileID: 81876802}
   - component: {fileID: 81876801}
   - component: {fileID: 81876800}
+  - component: {fileID: 81876803}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -368,12 +370,44 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81876799}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 2.492, y: -2.447, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &81876803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81876799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &156534679
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +435,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2041614212}
   - {fileID: 634125314}
   - {fileID: 1321214821}
   - {fileID: 1458456217}
@@ -410,6 +443,7 @@ Transform:
   - {fileID: 678271573}
   - {fileID: 1110042491}
   - {fileID: 1005256219}
+  - {fileID: 2041614212}
   m_Father: {fileID: 1011096125}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -457,6 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 1
   UnitType: Wall
 --- !u!212 &300327489
 SpriteRenderer:
@@ -553,6 +588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 1
   UnitType: Wall
 --- !u!212 &334531181
 SpriteRenderer:
@@ -649,6 +685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 1
   UnitType: Wall
 --- !u!212 &370623132
 SpriteRenderer:
@@ -803,7 +840,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 156534680}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &584960109
 SpriteRenderer:
@@ -868,6 +905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 0
   UnitType: Ground
 --- !u!1 &609805848
 GameObject:
@@ -944,7 +982,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 156534680}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &634125315
 SpriteRenderer:
@@ -1009,6 +1047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 0
   UnitType: Ground
 --- !u!1 &677706352
 GameObject:
@@ -1054,6 +1093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 1
   UnitType: Wall
 --- !u!212 &677706355
 SpriteRenderer:
@@ -1136,7 +1176,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 156534680}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &678271574
 SpriteRenderer:
@@ -1201,6 +1241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 0
   UnitType: Ground
 --- !u!1 &804886948
 GameObject:
@@ -1295,6 +1336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 1
   UnitType: Wall
 --- !u!212 &915684108
 SpriteRenderer:
@@ -1391,6 +1433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 1
   UnitType: Wall
 --- !u!212 &999235185
 SpriteRenderer:
@@ -1473,7 +1516,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 156534680}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1005256220
 SpriteRenderer:
@@ -1538,6 +1581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 0
   UnitType: Ground
 --- !u!1 &1011096124
 GameObject:
@@ -1616,7 +1660,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 156534680}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1110042492
 SpriteRenderer:
@@ -1681,6 +1725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 0
   UnitType: Ground
 --- !u!1 &1181826262
 GameObject:
@@ -1844,6 +1889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 1
   UnitType: Wall
 --- !u!212 &1271026956
 SpriteRenderer:
@@ -1926,7 +1972,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 156534680}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1321214822
 SpriteRenderer:
@@ -1991,6 +2037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 0
   UnitType: Ground
 --- !u!1 &1392261087
 GameObject:
@@ -2036,6 +2083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 1
   UnitType: Wall
 --- !u!212 &1392261090
 SpriteRenderer:
@@ -2118,7 +2166,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 156534680}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1458456218
 SpriteRenderer:
@@ -2183,6 +2231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 0
   UnitType: Ground
 --- !u!1 &1511143674
 GameObject:
@@ -2228,6 +2277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 1
   UnitType: Wall
 --- !u!212 &1511143677
 SpriteRenderer:
@@ -2370,6 +2420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 1
   UnitType: Wall
 --- !u!212 &1601660572
 SpriteRenderer:
@@ -2466,6 +2517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 1
   UnitType: Wall
 --- !u!212 &1607638628
 SpriteRenderer:
@@ -2562,6 +2614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 1
   UnitType: Wall
 --- !u!212 &1618764939
 SpriteRenderer:
@@ -2703,6 +2756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 1
   UnitType: Wall
 --- !u!212 &1883935204
 SpriteRenderer:
@@ -2799,6 +2853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 1
   UnitType: Wall
 --- !u!212 &1957450129
 SpriteRenderer:
@@ -2895,6 +2950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 1
   UnitType: Wall
 --- !u!212 &1991007591
 SpriteRenderer:
@@ -2977,7 +3033,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 156534680}
-  m_RootOrder: 0
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2041614213
 SpriteRenderer:
@@ -3042,6 +3098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 0
   UnitType: Ground
 --- !u!1 &2131971326
 GameObject:
@@ -3073,7 +3130,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 156534680}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2131971328
 SpriteRenderer:
@@ -3138,6 +3195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b57396e5762643ab8e8e592ad47de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsWall: 0
   UnitType: Ground
 --- !u!1001 &2090365259818095963
 PrefabInstance:

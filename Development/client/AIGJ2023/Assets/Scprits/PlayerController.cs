@@ -34,5 +34,11 @@ public class PlayerController : MonoBehaviour
         {
             character.MoveDirection = Vector2.zero;
         }
+
+
+
     }
+
+
+
 }
