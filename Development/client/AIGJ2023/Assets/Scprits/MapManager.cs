@@ -57,10 +57,8 @@ public class MapManager : MonoBehaviour
         return Coord2Pos(coord);
     }
 
-    public void ReadMap()
+    Dictionary<string, List<GameObject>> GetMapUnitsDict()
     {
-        currentMap.Width = 0;
-        currentMap.Height = 0;
         var gameRoot = currentMap.GetComponent<Transform>().gameObject;
 
         // 获取所有子物体
@@ -69,7 +67,6 @@ public class MapManager : MonoBehaviour
         {
             kinds.Add(child.gameObject);
         }
-
         Dictionary<string, List<GameObject>> mapUnitsDict = new Dictionary<string, List<GameObject>>();
         // 遍历所有类型
         foreach (GameObject kind in kinds)
@@ -83,6 +80,16 @@ public class MapManager : MonoBehaviour
 
             mapUnitsDict.Add(typeName, mapUnits);
         }
+        return mapUnitsDict;
+    }
+
+    public void ReadMap()
+    {
+        currentMap.Width = 0;
+        currentMap.Height = 0;
+        var gameRoot = currentMap.GetComponent<Transform>().gameObject;
+
+        var mapUnitsDict = GetMapUnitsDict();
 
         foreach (var name in mapUnitsDict.Keys)
         {
@@ -116,6 +123,20 @@ public class MapManager : MonoBehaviour
                 currentMap.MapUnits[y, x].UnitType = name;
             }
         }
+
+        // 填充null为new MapUnit()
+        // for (int i = 0; i < currentMap.Height; i++)
+        // {
+        //     for (int j = 0; j < currentMap.Width; j++)
+        //     {
+        //         if (currentMap.MapUnits[i, j] == null)
+        //         {
+        //             var GO = new GameObject();
+        //             GO.AddComponent<MapUnit>();
+        //             currentMap.MapUnits[i, j] = GO.GetComponent<MapUnit>();
+        //         }
+        //     }
+        // }
     }
 
     public Vector2? CalculateUnitCoord(Vector2 coord, Vector2 moveDir)
@@ -128,6 +149,31 @@ public class MapManager : MonoBehaviour
             return null;
         }
         return new Vector2(x, y);
+    }
+
+    // 去重位置相同的砖块
+    [Button("砖块去重")]
+    public void RemoveSamePosBricks()
+    {
+        var mapUnitsDict = GetMapUnitsDict();
+        var hashSet = new HashSet<Vector2>();
+        foreach (var name in mapUnitsDict.Keys)
+        {
+            var mapUnits = mapUnitsDict[name];
+
+            foreach (GameObject mapUnit in mapUnits)
+            {
+                var coord = Pos2Coord(mapUnit.transform.position);
+                if (hashSet.Contains(coord))
+                {
+                    DestroyImmediate(mapUnit);
+                }
+                else
+                {
+                    hashSet.Add(coord);
+                }
+            }
+        }
     }
 
 }

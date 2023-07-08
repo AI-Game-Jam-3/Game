@@ -29,11 +29,12 @@ public class Character : MonoBehaviour
         var currentMap = MapManager.Instance.currentMap;
         var currentCoord = MapManager.Instance.Pos2Coord(transform.position);
         var targetCoord = MapManager.Instance.CalculateUnitCoord(currentCoord, MoveDirection);
-        // if(targetCoord != null)
-        // {
-        //     Debug.Log(targetCoord + ": " + currentMap.GetUnit(targetCoord.Value).UnitType);
-        // }
-        if(targetCoord == null || currentMap.GetUnit(targetCoord.Value).UnitType == "Wall")
+        if(targetCoord == null)
+        {
+            return;
+        }
+        var unit = currentMap.GetUnit(targetCoord.Value);
+        if(unit != null && unit.UnitType == "Wall")
         {
             return;
         }
