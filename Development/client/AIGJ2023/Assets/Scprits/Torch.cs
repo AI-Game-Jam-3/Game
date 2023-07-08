@@ -24,7 +24,8 @@ public class Torch : MonoBehaviour
                 if(unit != null)
                 {
                     // TODO: 光照效果
-                    unit.GetComponentInChildren<SpriteRenderer>().color += Color.green;
+                    MapManager.Instance.TorchUnitsGroup.Add(unit);
+                    //unit.GetComponentInChildren<SpriteRenderer>().color = Color.green;
                 }
             }
         }
