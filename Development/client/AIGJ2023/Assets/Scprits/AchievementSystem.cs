@@ -5,6 +5,29 @@ using UnityEngine.UI;
 
 public class AchievementSystem : MonoBehaviour
 {
+    public bool HasPanel = false;
+    private static AchievementSystem instance;
+    public static AchievementSystem Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = GameObject.FindObjectOfType<AchievementSystem>();
+            }
+            return instance;
+        }
+    }
+    private void Awake() {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
     public List<Achievement> achievements;
     public GameObject uiPrefab;
     private GameObject ui;
@@ -19,6 +42,7 @@ public class AchievementSystem : MonoBehaviour
 
     public void Show()
     {
+        MessageBox.Instance.gameObject.SetActive(false);
         ui = GameObject.Instantiate(uiPrefab);
         ui.transform.SetParent(this.transform);
         ui.name = "AchievementSystemUI";
@@ -44,23 +68,28 @@ public class AchievementSystem : MonoBehaviour
             buttonObject.transform.localScale = Vector3.one;
             buttonObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, - i * (buttonGap + buttonHeight) - buttonGap);
 
-            if (achievements[i].Unlock) 
+            if (achievements[i].Unlock)
             {
                 buttonObject.GetComponentInChildren<Text>().text = achievements[i].Title;
-                buttonObject.GetComponent<Button>().onClick.AddListener(() => { text.text = achievements[index].Content; });
+                buttonObject.GetComponent<Button>().onClick.AddListener(() => {
+                    Debug.Log(achievements[index].Content);
+                    text.text = achievements[index].Content; });
             }
             else
             {
                 buttonObject.GetComponentInChildren<Text>().text = "???";
                 buttonObject.GetComponent<Button>().interactable = false;
             }
-            
+
         }
         GameObject.Destroy(button);
+        HasPanel = true;
     }
 
     public void Close()
     {
+        MessageBox.Instance.gameObject.SetActive(true);
+        HasPanel = false;
         GameObject.Destroy(ui);
     }
 
@@ -68,9 +97,9 @@ public class AchievementSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
-            if (ui == null)
+            if (ui == null && !HasPanel)
                 Show();
-            else
+            else if(ui != null)
                 Close();
         }
     }

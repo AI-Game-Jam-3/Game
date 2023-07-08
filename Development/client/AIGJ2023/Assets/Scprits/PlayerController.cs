@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
     public Character character;
+    public InteractInScene interactInScene;
     // Start is called before the first frame update
     void Start()
     {
         character = GetComponentInChildren<Character>();
+        interactInScene = GetComponentInChildren<InteractInScene>();
     }
 
     // Update is called once per frame
@@ -30,21 +33,18 @@ public class PlayerController : MonoBehaviour
         {
             character.MoveDirection = Vector2.right;
         }
-        else if (Input.GetKeyDown(KeyCode.T))
+        else if (Input.GetKeyDown(KeyCode.Space))
         {
             character.SetGoingToShout(true);
         }
-        else if(Input.GetKeyDown(KeyCode.Y))
+        else if (Input.GetKeyDown(KeyCode.F))
         {
-            character.SetGoingToShout(false);
+            interactInScene.Interactive();
         }
         else
         {
             character.MoveDirection = Vector2.zero;
         }
-
-
-
     }
 
 

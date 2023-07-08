@@ -7,6 +7,21 @@ public class MapUnit : MonoBehaviour
 
     public bool bIsWall = false;
 
+    public bool CanMove
+    {
+        get
+        {
+            if(UnitType == "Wall")
+            {
+                return false;
+            }
+            if(UnitType == "BreakableWall" && !GetComponent<BreakableWall>().breaked)
+            {
+                return false;
+            }
+            return true;
+        }
+    }
 
     public string UnitType;
     // Start is called before the first frame update

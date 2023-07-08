@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 3818341556493990929}
   - component: {fileID: 3818341556493990930}
   - component: {fileID: 3818341556493990931}
+  - component: {fileID: 5000453376085590310}
   m_Layer: 0
-  m_Name: Unit
+  m_Name: BreakableWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,6 +74,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
+--- !u!114 &5000453376085590310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3818341556493990928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acd461d2ec0476f4f9567357673ea888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breaked: 0
 --- !u!1 &3818341556599450726
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,7 +97,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3818341556599450727}
   - component: {fileID: 3818341556599450722}
-  - component: {fileID: 3818341556599450720}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -145,7 +158,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b1c0ed2ffec9bab4bb9eebb23f111e2e, type: 3}
   m_Color: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -156,15 +169,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3818341556599450720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3818341556599450726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acd461d2ec0476f4f9567357673ea888, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
