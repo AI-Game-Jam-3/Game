@@ -92,7 +92,7 @@ public class Character : MonoBehaviour
 
         foreach (MapUnit unit in ExpolreUnits)
         {
-            Debug.Log("LightedUnits: " + unit.transform.position);
+            // Debug.Log("LightedUnits: " + unit.transform.position);
             if(unit!=null)
             {
                 if(unit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))

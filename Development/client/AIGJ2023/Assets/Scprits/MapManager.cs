@@ -272,7 +272,7 @@ public class MapManager : MonoBehaviour
                         continue;
                     }
                     MapUnit TargetUnit = currentMap.MapUnits[TryY, TryX];
-     
+
                     Vector3 TargetPos = TargetUnit.transform.position;
                     Vector3 DistanceVector = PlayerPos - TargetPos;
                     float StepY = DistanceVector.y / DistanceVector.x;
@@ -318,7 +318,7 @@ public class MapManager : MonoBehaviour
                     {
                         AccessableMapUnits.Add(TargetUnit);
                     }
-                        
+
                 }
             }
 

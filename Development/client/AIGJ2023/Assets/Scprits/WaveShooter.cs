@@ -8,19 +8,19 @@ public class WaveShooter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     [Button("Shoot")]
     public List<MapUnit> ShootRays(int kernelSize)
     {
-        // TODO: ¿¼ÂÇCellSize
+        // TODO: ï¿½ï¿½ï¿½ï¿½CellSize
         List<MapUnit> visiableUnits = new List<MapUnit>();
         Debug.Assert(kernelSize % 2 != 0);
         int range = kernelSize / 2;
@@ -36,6 +36,10 @@ public class WaveShooter : MonoBehaviour
                     continue;
                 }
                 MapUnit targetUnit = MapManager.Instance.currentMap.GetUnit(newCoord);
+                if(targetUnit == null)
+                {
+                    continue;
+                }
                 Vector3? targetPos = targetUnit.transform.position;
                 if (targetPos.HasValue)
                 {
@@ -44,11 +48,11 @@ public class WaveShooter : MonoBehaviour
                     var hit = Physics2D.Raycast(transform.position, vec.normalized, vec.magnitude, LayerMask.GetMask("Wall"));
                     if(hit.collider != null)
                     {
-                        //var spriteRenderer = hit.collider.GetComponent<SpriteRenderer>();
-                        //if (spriteRenderer != null)
-                        //{
-                        //    spriteRenderer.color = Color.black;
-                        //}
+                        var spriteRenderer = hit.collider.GetComponent<SpriteRenderer>();
+                        if (spriteRenderer != null)
+                        {
+                           spriteRenderer.color = Color.black;
+                        }
                     }
                     else
                     {
