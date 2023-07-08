@@ -20,7 +20,7 @@ public class Character : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -35,12 +35,12 @@ public class Character : MonoBehaviour
 
         //if(IsGoingToShout)
         //{
-
+         
 
             // TODO 时间设置
         //}
 
-
+        
     }
 
     public void Move()
@@ -161,19 +161,11 @@ public class Character : MonoBehaviour
             }
         }
 
+        
 
-        foreach (MapUnit unit in ExpolreUnits)
-        {
-            // Debug.Log("LightedUnits: " + unit.transform.position);
-            if(unit!=null)
-            {
-                if(unit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
-                {
-                    spriteRenderer.color = Color.yellow;
-                }
-            }
-        }
-        LightedUnitsCache = ExpolreUnits;
+        
+
+
 
     }
 }
