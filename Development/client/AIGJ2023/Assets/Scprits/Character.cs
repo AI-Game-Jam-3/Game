@@ -141,14 +141,14 @@ public class Character : MonoBehaviour
 
     IEnumerator LightOffUnitsSlowly()
     {
-        var speed = 0.005f;
+        var speed = 0.05f;
         var alpha = 0.0f;
         var newColor = new Vector3(1, 1, 1);
         while (alpha < 1)
         {
             if (!IsFadeOut)
             {
-                yield return null;
+                yield return new WaitForFixedUpdate();
             }
             alpha = Mathf.MoveTowards(alpha, 1, speed);
             //newColor = Vector3.MoveTowards(newColor, new Vector3(0, 0, 0), speed);
@@ -184,7 +184,7 @@ public class Character : MonoBehaviour
                 }
             }
 
-            yield return null;
+            yield return new WaitForFixedUpdate();
         }
         IsCouldShout = true;
         //LightCharacterUnit();
