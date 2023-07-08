@@ -143,6 +143,7 @@ public class Character : MonoBehaviour
     {
         var speed = 0.005f;
         var alpha = 0.0f;
+        var newColor = new Vector3(1, 1, 1);
         while (alpha < 1)
         {
             if (!IsFadeOut)
@@ -150,6 +151,7 @@ public class Character : MonoBehaviour
                 yield return null;
             }
             alpha = Mathf.MoveTowards(alpha, 1, speed);
+            //newColor = Vector3.MoveTowards(newColor, new Vector3(0, 0, 0), speed);
             //renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, a);
             //Debug.Log("alpha:" + alpha.ToString());
 
@@ -162,7 +164,7 @@ public class Character : MonoBehaviour
                     {
                         if (unit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
                         {
-                            UnityEngine.Color color = UnityEngine.Color.black;
+                            UnityEngine.Color color = new UnityEngine.Color(1- alpha, 1 - alpha, 1 - alpha);
 
                             if (unit.bIsWall)
                             {
