@@ -4,6 +4,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using UnityEditorInternal;
 using static UnityEngine.UI.CanvasScaler;
+using System.Drawing;
 
 public class Character : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Character : MonoBehaviour
     public Vector2 MoveDirection;
     [LabelText("原始位置")]
     public Vector3 OriginPos;
+    UnityEngine.Color PrePosColor = UnityEngine.Color.white;
 
     public bool IsGoingToShout;
 
@@ -28,31 +30,56 @@ public class Character : MonoBehaviour
         IsCouldShout = true;
         IsFadeOut = false;
 
+
         //StartCoroutine(Test());
     }
 
+
+    MapUnit getCurrentPlayerUnit()
+    {
+        Vector2 CharacterXY = MapManager.Instance.Pos2Coord(this.transform.position);
+        int CurX = (int)CharacterXY.x;
+        int CurY = (int)CharacterXY.y;
+        MapUnit PlayerUnit = MapManager.Instance.currentMap.MapUnits[CurY, CurX];
+        return PlayerUnit;
+    }
     // Update is called once per frame
     void Update()
     {
 
-
-        
         if (MoveDirection != Vector2.zero)
         {
+            //LastCharacterUnit = getCurrentPlayerUnit();
+            //if (LastCharacterUnit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
+            //{
+            //    PrePosColor = spriteRenderer.color;
+
+            //}
             Move();
-            if(LastCharacterUnit != null)
-            {
-                if (LastCharacterUnit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
-                {
-                    Color color = Color.black;
+            //if (LastCharacterUnit != null)
+            //{
+            //    if (LastCharacterUnit.TryGetComponent<SpriteRenderer>(out SpriteRenderer lastSpriteRenderer))
+            //    {
+            //        //Color color = Color.black;
 
-                    color.a = 1;
-                    spriteRenderer.color = color;
+            //        //color.a = 1;
+            //        lastSpriteRenderer.color = PrePosColor;
 
-                }
-            }
+            //    }
+            //}
+            //LightCharacterUnit();
         }
-        LightCharacterUnit();
+        //else
+        //{
+        //    LastCharacterUnit = getCurrentPlayerUnit();
+        //    if (LastCharacterUnit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
+        //    {
+        //        PrePosColor = spriteRenderer.color;
+
+        //    }
+        //}
+
+
 
         if (IsCouldShout && IsGoingToShout)
         {
@@ -62,28 +89,29 @@ public class Character : MonoBehaviour
             PostUpdateMapExplore();
             //TODO 时间设置
             Invoke("ResetMapExplore", 1.0f);
-            
+
             IsGoingToShout = false;
         }
-        LightFireUpdate();
 
+
+        LightFireUpdate();
     }
 
     void LightCharacterUnit()
     {
-        
+
         Vector2 CharacterXY = MapManager.Instance.Pos2Coord(this.transform.position);
         int CurX = (int)CharacterXY.x;
         int CurY = (int)CharacterXY.y;
         MapUnit PlayerUnit = MapManager.Instance.currentMap.MapUnits[CurY, CurX];
-        LastCharacterUnit = PlayerUnit;
+
         if (PlayerUnit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
         {
-            Color color = Color.white;
+            UnityEngine.Color color = UnityEngine.Color.white;
 
             color.a = 0;
             spriteRenderer.color = color;
-            
+
         }
     }
 
@@ -92,12 +120,12 @@ public class Character : MonoBehaviour
         var currentMap = MapManager.Instance.currentMap;
         var currentCoord = MapManager.Instance.Pos2Coord(transform.position);
         var targetCoord = MapManager.Instance.CalculateUnitCoord(currentCoord, MoveDirection);
-        if(targetCoord == null)
+        if (targetCoord == null)
         {
             return;
         }
         var unit = currentMap.GetUnit(targetCoord.Value);
-        if(unit != null && unit.UnitType == "Wall")
+        if (unit != null && unit.UnitType == "Wall")
         {
             return;
         }
@@ -115,7 +143,7 @@ public class Character : MonoBehaviour
     {
         var speed = 0.005f;
         var alpha = 0.0f;
-        while (alpha < 1 )
+        while (alpha < 1)
         {
             if (!IsFadeOut)
             {
@@ -125,7 +153,7 @@ public class Character : MonoBehaviour
             //renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, a);
             //Debug.Log("alpha:" + alpha.ToString());
 
-            if ( LightedUnitsCache != null && LightedUnitsCache.Count > 0)
+            if (LightedUnitsCache != null && LightedUnitsCache.Count > 0)
             {
                 foreach (MapUnit unit in LightedUnitsCache)
                 {
@@ -134,7 +162,7 @@ public class Character : MonoBehaviour
                     {
                         if (unit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
                         {
-                            Color color = Color.black;
+                            UnityEngine.Color color = UnityEngine.Color.black;
 
                             if (unit.bIsWall)
                             {
@@ -156,7 +184,7 @@ public class Character : MonoBehaviour
             yield return null;
         }
         IsCouldShout = true;
-
+        //LightCharacterUnit();
         LightFireUpdate();
         yield break;
     }
@@ -164,7 +192,7 @@ public class Character : MonoBehaviour
     void ResetMapExplore()
     {
 
-       StartCoroutine(LightOffUnitsSlowly());
+        StartCoroutine(LightOffUnitsSlowly());
 
     }
 
@@ -178,7 +206,7 @@ public class Character : MonoBehaviour
             {
                 if (torchunit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
                 {
-                    Color color = Color.white;
+                    UnityEngine.Color color = UnityEngine.Color.white;
                     //color.a = 1;
                     //spriteRenderer.color = color;
 
@@ -223,7 +251,7 @@ public class Character : MonoBehaviour
                 {
                     if (unit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
                     {
-                        Color color = Color.black;
+                        UnityEngine.Color color = UnityEngine.Color.black;
 
                         if (unit.bIsWall)
                         {
@@ -251,7 +279,7 @@ public class Character : MonoBehaviour
             {
                 if (unit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
                 {
-                    Color color = Color.white;
+                    UnityEngine.Color color = UnityEngine.Color.white;
 
                     if (unit.bIsWall)
                     {
@@ -274,7 +302,7 @@ public class Character : MonoBehaviour
             {
                 if (proctectedUnit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
                 {
-                    Color color = Color.white;
+                    UnityEngine.Color color = UnityEngine.Color.white;
 
                     if (proctectedUnit.bIsWall)
                     {
