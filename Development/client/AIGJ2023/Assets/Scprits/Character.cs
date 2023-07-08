@@ -164,7 +164,8 @@ public class Character : MonoBehaviour
                     {
                         if (unit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
                         {
-                            UnityEngine.Color color = new UnityEngine.Color(1- alpha, 1 - alpha, 1 - alpha);
+                            float NewEle = 1 - alpha;
+                            UnityEngine.Color color = spriteRenderer.color * NewEle;
 
                             if (unit.bIsWall)
                             {
