@@ -37,10 +37,13 @@ public class MapManager : MonoBehaviour
         ReadMap();
 
         SetMapColor();
+
+        TorchUnitsGroup = new List<MapUnit>();
     }
 
     public int CELL_SIZE = 1;
     public RectMap currentMap;
+    public List<MapUnit> TorchUnitsGroup;
     public Vector3 Coord2Pos(Vector2 coord)
     {
         // (0, 0) => (SIZE/2, -SIZE/2)
