@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using UnityEditorInternal;
+using static UnityEngine.UI.CanvasScaler;
 
 public class Character : MonoBehaviour
 {
@@ -13,6 +15,9 @@ public class Character : MonoBehaviour
     public bool IsGoingToShout;
 
     List<MapUnit> LightedUnitsCache;
+    MapUnit LastCharacterUnit;
+    public bool IsCouldShout;
+    public bool IsFadeOut;
     public void SetGoingToShout(bool Shout)
     {
         IsGoingToShout = Shout;
@@ -20,27 +25,66 @@ public class Character : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        IsCouldShout = true;
+        IsFadeOut = false;
+
+        //StartCoroutine(Test());
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
+        
         if (MoveDirection != Vector2.zero)
         {
             Move();
-            PostUpdateMapExplore();
+            if(LastCharacterUnit != null)
+            {
+                if (LastCharacterUnit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
+                {
+                    Color color = Color.black;
 
+                    color.a = 1;
+                    spriteRenderer.color = color;
+
+                }
+            }
         }
+        LightCharacterUnit();
 
-        //if(IsGoingToShout)
-        //{
-         
+        if (IsCouldShout && IsGoingToShout)
+        {
 
-            // TODO 时间设置
-        //}
+            IsCouldShout = false;
+            IsFadeOut = false;
+            PostUpdateMapExplore();
+            //TODO 时间设置
+            Invoke("ResetMapExplore", 1.0f);
+            
+            IsGoingToShout = false;
+        }
+        LightFireUpdate();
 
+    }
+
+    void LightCharacterUnit()
+    {
         
+        Vector2 CharacterXY = MapManager.Instance.Pos2Coord(this.transform.position);
+        int CurX = (int)CharacterXY.x;
+        int CurY = (int)CharacterXY.y;
+        MapUnit PlayerUnit = MapManager.Instance.currentMap.MapUnits[CurY, CurX];
+        LastCharacterUnit = PlayerUnit;
+        if (PlayerUnit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
+        {
+            Color color = Color.white;
+
+            color.a = 0;
+            spriteRenderer.color = color;
+            
+        }
     }
 
     public void Move()
@@ -66,6 +110,93 @@ public class Character : MonoBehaviour
         transform.position = OriginPos;
     }
 
+
+    IEnumerator LightOffUnitsSlowly()
+    {
+        var speed = 0.005f;
+        var alpha = 0.0f;
+        while (alpha < 1 )
+        {
+            if (!IsFadeOut)
+            {
+                yield return null;
+            }
+            alpha = Mathf.MoveTowards(alpha, 1, speed);
+            //renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, a);
+            //Debug.Log("alpha:" + alpha.ToString());
+
+            if ( LightedUnitsCache != null && LightedUnitsCache.Count > 0)
+            {
+                foreach (MapUnit unit in LightedUnitsCache)
+                {
+
+                    if (unit != null)
+                    {
+                        if (unit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
+                        {
+                            Color color = Color.black;
+
+                            if (unit.bIsWall)
+                            {
+                                color.a = alpha;
+                                spriteRenderer.color = color;
+                                //spriteRenderer.color = Color.blue;
+                            }
+                            else
+                            {
+                                color.a = alpha;
+                                spriteRenderer.color = color;
+                                //spriteRenderer.color = Color.white;
+                            }
+                        }
+                    }
+                }
+            }
+
+            yield return null;
+        }
+        IsCouldShout = true;
+
+        LightFireUpdate();
+        yield break;
+    }
+
+    void ResetMapExplore()
+    {
+
+       StartCoroutine(LightOffUnitsSlowly());
+
+    }
+
+    void LightFireUpdate()
+    {
+        //处理已经被点亮的火把
+        foreach (MapUnit torchunit in MapManager.Instance.TorchUnitsGroup)
+        {
+            // Debug.Log("LightedUnits: " + unit.transform.position);
+            if (torchunit != null)
+            {
+                if (torchunit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
+                {
+                    Color color = Color.white;
+                    //color.a = 1;
+                    //spriteRenderer.color = color;
+
+                    if (torchunit.bIsWall)
+                    {
+                        color.a = 1;
+                        spriteRenderer.color = color;
+                    }
+                    else
+                    {
+                        color.a = 0;
+                        spriteRenderer.color = color;
+                    }
+                }
+            }
+        }
+    }
+
     void PostUpdateMapExplore()
     {
         //Debug.Log("Current Character Position: " + character.transform.position);
@@ -80,7 +211,6 @@ public class Character : MonoBehaviour
         ////    Debug.Log("ExpolreUnit: " + unit.transform.position);
         ////}
         ////Debug.Log("=======================");
-
 
 
         List<MapUnit> ExpolreUnits = GetComponent<WaveShooter>().ShootRays(7);
@@ -116,7 +246,7 @@ public class Character : MonoBehaviour
 
         foreach (MapUnit unit in ExpolreUnits)
         {
-            Debug.Log("LightedUnits: " + unit.transform.position);
+            //Debug.Log("LightedUnits: " + unit.transform.position);
             if (unit != null)
             {
                 if (unit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
@@ -161,11 +291,14 @@ public class Character : MonoBehaviour
             }
         }
 
-        
 
-        
+        LightFireUpdate();
 
+        IsFadeOut = true;
 
 
     }
+
+
+
 }
