@@ -83,21 +83,21 @@ public class Character : MonoBehaviour
                         {
                             spriteRenderer.color = Color.white;
                         }
-
+                        
                     }
                 }
             }
         }
-
+        
 
         foreach (MapUnit unit in ExpolreUnits)
         {
             Debug.Log("LightedUnits: " + unit.transform.position);
             if(unit!=null)
             {
-                if(unit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
+                if(unit.TryGetComponent<SpriteRenderer>(out  SpriteRenderer spriteRenderer))
                 {
-                    spriteRenderer.color = Color.yellow;
+                    spriteRenderer.color = Color.yellow;   
                 }
             }
         }

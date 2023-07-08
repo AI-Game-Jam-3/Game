@@ -49,6 +49,7 @@ public class WaveShooter : MonoBehaviour
                         //{
                         //    spriteRenderer.color = Color.black;
                         //}
+                        visiableUnits.Add(hit.collider.GetComponent<MapUnit>());
                     }
                     else
                     {
