@@ -35,6 +35,8 @@ public class MapManager : MonoBehaviour
 
     private void Start() {
         ReadMap();
+
+        SetMapColor();
     }
 
     public int CELL_SIZE = 1;
@@ -94,6 +96,20 @@ public class MapManager : MonoBehaviour
             mapUnitsDict.Add(typeName, mapUnits);
         }
         return mapUnitsDict;
+    }
+
+    public void SetMapColor()
+    {
+        var currentMap = MapManager.Instance.currentMap;
+        foreach (MapUnit unit in currentMap.MapUnits)
+        {
+            if (unit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
+            {
+                UnityEngine.Color color = UnityEngine.Color.black;
+                color.a = 1;
+                spriteRenderer.color = color;
+            }
+        }
     }
 
     [Button("读取地图")]

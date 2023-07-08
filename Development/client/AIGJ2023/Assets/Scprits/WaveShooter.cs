@@ -48,11 +48,12 @@ public class WaveShooter : MonoBehaviour
                     var hit = Physics2D.Raycast(transform.position, vec.normalized, vec.magnitude, LayerMask.GetMask("Wall"));
                     if(hit.collider != null)
                     {
-                        var spriteRenderer = hit.collider.GetComponent<SpriteRenderer>();
-                        if (spriteRenderer != null)
-                        {
-                           spriteRenderer.color = Color.black;
-                        }
+                        //var spriteRenderer = hit.collider.GetComponent<SpriteRenderer>();
+                        //if (spriteRenderer != null)
+                        //{
+                        //    spriteRenderer.color = Color.black;
+                        //}
+                        visiableUnits.Add(hit.collider.GetComponent<MapUnit>());
                     }
                     else
                     {
