@@ -3262,14 +3262,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1210175435}
     m_Modifications:
-    - target: {fileID: 8905776420033743584, guid: b2c1d401c1e9ec74fa7bbb19b143b92f, type: 3}
-      propertyPath: achievements.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: ac194f6f0cc852647a0469c88067b118, type: 2}
-    - target: {fileID: 8905776420033743584, guid: b2c1d401c1e9ec74fa7bbb19b143b92f, type: 3}
-      propertyPath: achievements.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 16e6cf63e24cc1a458dae44e4fdff47c, type: 2}
     - target: {fileID: 8905776420033743585, guid: b2c1d401c1e9ec74fa7bbb19b143b92f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -12091,6 +12083,7 @@ MonoBehaviour:
   message: 'Atticus: Only in this world can I be a hero to everyone. Illusion or
     reality, do these really matter so much?'
   triggered: 0
+  clearMessageTime: 3
 --- !u!4 &1002892717
 Transform:
   m_ObjectHideFlags: 0
