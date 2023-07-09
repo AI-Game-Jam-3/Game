@@ -26,6 +26,14 @@ public class Setting : MonoBehaviour
         });
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape) && ui != null)
+        {
+            SceneManager.LoadScene(mainScene);
+        }
+    }
+
     public void Show()
     {
         ui = GameObject.Instantiate(uiPrefab);
