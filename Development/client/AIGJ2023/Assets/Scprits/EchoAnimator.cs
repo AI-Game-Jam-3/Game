@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EchoAnimator : MonoBehaviour
 {
+    public bool alwaysShow = false;
     public float size;
     public float framerate;
     public List<Sprite> frames;
@@ -25,13 +26,16 @@ public class EchoAnimator : MonoBehaviour
 
     IEnumerator AnimatorController()
     {
-        foreach (var frame in frames)
+        while (alwaysShow)
         {
-            if(renderer != null)
+            foreach (var frame in frames)
             {
-                renderer.sprite = frame;
+                if (renderer != null)
+                {
+                    renderer.sprite = frame;
+                }
+                yield return new WaitForSecondsRealtime(1.0f / framerate);
             }
-            yield return new WaitForSecondsRealtime(1.0f / framerate);
         }
         GameObject.Destroy(echoObject);
     }
