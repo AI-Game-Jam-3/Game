@@ -17,7 +17,7 @@ public class Collect : MonoBehaviour
         if(!triggered && other.TryGetComponent<SmallTrigger>(out var comp))
         {
             spriteRenderer.sprite = afterCollectedSprite;
-            AchievementSystem.Instance.SetAchievementStatus("Collect1", true);
+            UIManager.Instance.achievementSystem.SetAchievementStatus("Collect1", true);
             triggered = true;
         }
     }

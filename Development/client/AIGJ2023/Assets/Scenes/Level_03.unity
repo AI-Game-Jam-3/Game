@@ -11354,7 +11354,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91593076a61dd24eb6d6a23e7c0f7b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HasPanel: 0
   achievements:
   - {fileID: 11400000, guid: 9ff2630914fc44c45a06846e759c5d63, type: 2}
   - {fileID: 11400000, guid: c4fb4a31787afa04f85efdac4a040caf, type: 2}
