@@ -597,9 +597,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b005f5c54144134e8c6cb6cc38fc4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFire: 0
-  isShout: 0
-  isBreak: 0
   mes: 
 --- !u!4 &899883359
 Transform:

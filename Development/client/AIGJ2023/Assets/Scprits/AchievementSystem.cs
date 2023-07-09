@@ -31,6 +31,7 @@ public class AchievementSystem : MonoBehaviour
         var text = GameObject.Find("InputField").GetComponentInChildren<Text>();
         text.text = "";
         var closeButton = GameObject.Find("CloseButton").GetComponent<Button>();
+        var icon = GameObject.Find("Icon").GetComponent<Image>();
         closeButton.onClick.AddListener(Close);
 
         var buttonGap = -buttonRect.anchoredPosition.y;
@@ -53,7 +54,10 @@ public class AchievementSystem : MonoBehaviour
                 buttonObject.GetComponentInChildren<Text>().text = achievements[i].Title;
                 buttonObject.GetComponent<Button>().onClick.AddListener(() => {
                     Debug.Log(achievements[index].Content);
-                    text.text = achievements[index].Content; });
+                    text.text = achievements[index].Content;
+                    icon.sprite = achievements[index].Icon;
+                    icon.color = Color.white;
+                });
             }
             else
             {
