@@ -9,6 +9,8 @@ public class Collect : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public bool triggered = false;
 
+    public Texture ground_tex;
+
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -17,8 +19,12 @@ public class Collect : MonoBehaviour
         if(!triggered && other.TryGetComponent<SmallTrigger>(out var comp))
         {
             // spriteRenderer.sprite = afterCollectedSprite;
-            spriteRenderer.material.SetTexture("_MainTex", afterCollectedSprite.texture);
-            UIManager.Instance.achievementSystem.SetAchievementStatus("Collect1", true);
+            
+            Color color = Color.white;
+            color.a = 0;
+            spriteRenderer.material.SetTexture("_BaseMap", /*afterCollectedSprite.texture*/ground_tex);
+            spriteRenderer.material.SetColor("_BaseColor", color);
+            //UIManager.Instance.achievementSystem.SetAchievementStatus("Collect1", true);
             triggered = true;
         }
     }

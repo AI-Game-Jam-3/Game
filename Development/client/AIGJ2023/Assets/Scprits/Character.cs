@@ -251,7 +251,7 @@ public class Character : MonoBehaviour
                     }
                     else
                     {
-                        color.a = 0;
+                        color.a = 1;
                         //spriteRenderer.color = color;
                         Material material = spriteRenderer.material;
                         material.SetColor("_BaseColor", color);
@@ -330,7 +330,7 @@ public class Character : MonoBehaviour
                     }
                     else
                     {
-                        color.a = 0;
+                        color.a = 1;
                         //spriteRenderer.color = color;
                         Material material = spriteRenderer.material;
                         material.SetColor("_BaseColor", color);
@@ -357,7 +357,7 @@ public class Character : MonoBehaviour
                     }
                     else
                     {
-                        color.a = 0;
+                        color.a = 1;
                         //spriteRenderer.color = color;
                         Material material = spriteRenderer.material;
                         material.SetColor("_BaseColor", color);
