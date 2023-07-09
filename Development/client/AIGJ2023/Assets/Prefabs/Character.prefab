@@ -223,7 +223,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0, g: 0.34901962, b: 0.9960785, a: 1}
+  m_Color: {r: 0.6392157, g: 0.6392157, b: 0.6392157, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -341,6 +341,7 @@ MonoBehaviour:
   OriginPos: {x: 2.5, y: -2.5, z: -1}
   CanTransfer: 0
   CurrentGate: {fileID: 0}
+  echoAnimator: {fileID: 0}
   IsGoingToShout: 0
   IsCouldShout: 0
   IsFadeOut: 0
