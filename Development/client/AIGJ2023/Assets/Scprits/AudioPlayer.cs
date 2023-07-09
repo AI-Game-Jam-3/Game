@@ -22,29 +22,35 @@ public class AudioPlayer : MonoBehaviour
         }
     }
 
-    IEnumerator WaitAndDestroyAudioSource(AudioSource source)
+    IEnumerator WaitAndDestroyAudioSource(AudioSource source, float time)
     {
-        yield return new WaitForSeconds(source.clip.length);
+        yield return new WaitForSeconds(time);
         GameObject.Destroy(source);
     }
 
-    public void PlayClip(string clip, float volumn = 1, bool isLoop = false)
+    public void PlayClip(string clip, float len = 0, float volumn = 1, bool isLoop = false)
     {
-        for(int i = 0; i < audioClip.Count; i++)
+        for(int i = 0; i < audioName.Count; i++)
         {
-            if (audioClip[i].name == clip)
-                PlayClip(audioClip[i], volumn, isLoop);
+            if (audioName[i] == clip)
+                PlayClip(audioClip[i], len, volumn, isLoop);
         }
     }
 
-    public void PlayClip(AudioClip clip, float volumn = 1, bool isLoop = false)
+    public void PlayClip(AudioClip clip, float len = 0, float volumn = 1, bool isLoop = false)
     {
         var audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = clip;
         audioSource.volume = volumn;
         audioSource.loop = isLoop;
         audioSource.Play();
-        if(!isLoop) StartCoroutine(WaitAndDestroyAudioSource(audioSource));
+        if (!isLoop)
+        {
+            if (len == 0)
+                StartCoroutine(WaitAndDestroyAudioSource(audioSource, clip.length));
+            else
+                StartCoroutine(WaitAndDestroyAudioSource(audioSource, len));
+        }
     }
 
 }
