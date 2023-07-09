@@ -49,7 +49,7 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        CheckTransferGate();
         if (MoveDirection != Vector2.zero)
         {
             //LastCharacterUnit = getCurrentPlayerUnit();
@@ -114,8 +114,9 @@ public class Character : MonoBehaviour
             UnityEngine.Color color = UnityEngine.Color.white;
 
             color.a = 0;
-            spriteRenderer.color = color;
-
+            //spriteRenderer.color = color;
+            Material material = spriteRenderer.material;
+            material.SetColor("_BaseColor", color);
         }
     }
 
@@ -135,6 +136,25 @@ public class Character : MonoBehaviour
         }
         transform.Translate(MoveDirection * MapManager.Instance.CELL_SIZE);
         AudioPlayer.Instance.PlayClip("walk");
+
+
+    }
+
+    void CheckTransferGate()
+    {
+        var coord = MapManager.Instance.Pos2Coord(transform.position);
+        var unit = MapManager.Instance.currentMap.GetUnit(coord);
+        if(unit != null)
+        {
+            if(unit.TryGetComponent<TransferGate>(out var gate))
+            {
+                CurrentGate = gate;
+                CanTransfer = true;
+            }
+            return;
+        }
+        CurrentGate = null;
+        CanTransfer = false;
     }
 
     [Button("返回原始位置")]
@@ -175,14 +195,18 @@ public class Character : MonoBehaviour
                             if (unit.bIsWall)
                             {
                                 color.a = alpha;
-                                spriteRenderer.color = color;
+                                //spriteRenderer.color = color;
                                 //spriteRenderer.color = Color.blue;
+                                Material material = spriteRenderer.material;
+                                material.SetColor("_BaseColor", color);
                             }
                             else
                             {
                                 color.a = alpha;
-                                spriteRenderer.color = color;
+                                //spriteRenderer.color = color;
                                 //spriteRenderer.color = Color.white;
+                                Material material = spriteRenderer.material;
+                                material.SetColor("_BaseColor", color);
                             }
                         }
                     }
@@ -221,12 +245,16 @@ public class Character : MonoBehaviour
                     if (torchunit.bIsWall)
                     {
                         color.a = 1;
-                        spriteRenderer.color = color;
+                        //spriteRenderer.color = color;
+                        Material material = spriteRenderer.material;
+                        material.SetColor("_BaseColor", color);
                     }
                     else
                     {
                         color.a = 0;
-                        spriteRenderer.color = color;
+                        //spriteRenderer.color = color;
+                        Material material = spriteRenderer.material;
+                        material.SetColor("_BaseColor", color);
                     }
                 }
             }
@@ -264,14 +292,18 @@ public class Character : MonoBehaviour
                         if (unit.bIsWall)
                         {
                             color.a = 1;
-                            spriteRenderer.color = color;
+                            //spriteRenderer.color = color;
                             //spriteRenderer.color = Color.blue;
+                            Material material = spriteRenderer.material;
+                            material.SetColor("_BaseColor", color);
                         }
                         else
                         {
                             color.a = 1;
-                            spriteRenderer.color = color;
+                            //spriteRenderer.color = color;
                             //spriteRenderer.color = Color.white;
+                            Material material = spriteRenderer.material;
+                            material.SetColor("_BaseColor", color);
                         }
 
                     }
@@ -292,12 +324,16 @@ public class Character : MonoBehaviour
                     if (unit.bIsWall)
                     {
                         color.a = 1;
-                        spriteRenderer.color = color;
+                        //spriteRenderer.color = color;
+                        Material material = spriteRenderer.material;
+                        material.SetColor("_BaseColor", color);
                     }
                     else
                     {
                         color.a = 0;
-                        spriteRenderer.color = color;
+                        //spriteRenderer.color = color;
+                        Material material = spriteRenderer.material;
+                        material.SetColor("_BaseColor", color);
                     }
                 }
             }
@@ -315,12 +351,16 @@ public class Character : MonoBehaviour
                     if (proctectedUnit.bIsWall)
                     {
                         color.a = 1;
-                        spriteRenderer.color = color;
+                        //spriteRenderer.color = color;
+                        Material material = spriteRenderer.material;
+                        material.SetColor("_BaseColor", color);
                     }
                     else
                     {
                         color.a = 0;
-                        spriteRenderer.color = color;
+                        //spriteRenderer.color = color;
+                        Material material = spriteRenderer.material;
+                        material.SetColor("_BaseColor", color);
                     }
                 }
                 LightedUnitsCache.Add(proctectedUnit);

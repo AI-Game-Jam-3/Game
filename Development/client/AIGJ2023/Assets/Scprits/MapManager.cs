@@ -109,9 +109,10 @@ public class MapManager : MonoBehaviour
         {
             if (unit.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
             {
+                Material material = spriteRenderer.material;
                 UnityEngine.Color color = UnityEngine.Color.black;
                 color.a = 1;
-                spriteRenderer.color = color;
+                material.SetColor("_BaseColor", color);
             }
         }
     }

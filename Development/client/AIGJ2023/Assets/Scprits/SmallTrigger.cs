@@ -18,18 +18,20 @@ public class SmallTrigger : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.TryGetComponent<TransferGate>(out var gate))
-        {
-            character.CanTransfer = true;
-            character.CurrentGate = gate;
-        }
+        // if(other.TryGetComponent<TransferGate>(out var gate))
+        // {
+        //     Debug.Log("Enter at: " + gate.name);
+        //     character.CanTransfer = true;
+        //     character.CurrentGate = gate;
+        // }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
-        if(other.TryGetComponent<TransferGate>(out var gate))
-        {
-            character.CanTransfer = false;
-            character.CurrentGate = null;
-        }
+        // if(other.TryGetComponent<TransferGate>(out var gate))
+        // {
+        //     Debug.Log("Exit at: " + gate.name);
+        //     character.CanTransfer = false;
+        //     character.CurrentGate = null;
+        // }
     }
 }
