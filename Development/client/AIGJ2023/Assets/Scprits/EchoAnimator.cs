@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EchoAnimator : MonoBehaviour
 {
+    public bool playOnAwake = false;
     public bool alwaysShow = false;
     public float size;
     public float framerate;
@@ -38,5 +39,11 @@ public class EchoAnimator : MonoBehaviour
             }
         }
         GameObject.Destroy(echoObject);
+    }
+
+    void Start()
+    {
+        if(playOnAwake)
+            TriggerEchoAnimation();
     }
 }
