@@ -313,7 +313,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 50
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -342,6 +342,7 @@ MonoBehaviour:
   CanTransfer: 0
   CurrentGate: {fileID: 0}
   echoAnimator: {fileID: 0}
+  CurrentCoord: {x: 0, y: 0}
   IsGoingToShout: 0
   IsCouldShout: 0
   IsFadeOut: 0
@@ -370,6 +371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a6139a009c18645a20c7e2196b4d0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playOnAwake: 0
+  alwaysShow: 0
   size: 6
   framerate: 20
   frames:

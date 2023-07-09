@@ -25,7 +25,7 @@ public class PanelAnim : MonoBehaviour
     void Update()
     {
         // ��������ת����
-        if(isGoingToClose && Input.GetMouseButtonDown(0))
+        if(isGoingToClose && Input.GetKeyDown(KeyCode.Space))
         {
             StartCoroutine(HidePanel(panel));
         }
@@ -56,7 +56,10 @@ public class PanelAnim : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         GO.transform.localScale = Vector3.zero;
+    
         GameManager.Instance.EnterLevel(5);
+   
+        
 
     }
 
