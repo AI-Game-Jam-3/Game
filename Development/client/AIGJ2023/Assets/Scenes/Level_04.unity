@@ -1439,7 +1439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec802e1df0783d649a2ab963575cf06c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: 'New move means new start. Press "T" or the audio input 3 times "Move"
+  message: 'New move means new start. Press "F" or the audio input 3 times "Move"
     to teleport to the corresponding point. '
   triggered: 0
   clearMessageTime: 3
