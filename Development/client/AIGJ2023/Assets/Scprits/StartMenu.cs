@@ -90,6 +90,7 @@ public class StartMenu : MonoBehaviour
 
     public void EnterGame()
     {
+        StartBackgroundMusic();
         GameManager.Instance.EnterLevel(0);
     }
 
@@ -117,5 +118,13 @@ public class StartMenu : MonoBehaviour
     {
         Debug.Log("Quit");
         Application.Quit();
+    }
+
+    private void StartBackgroundMusic()
+    {
+        var musicGO = GameObject.Find("Background Music");
+        GameObject.DontDestroyOnLoad(musicGO);
+        var musicSource = musicGO.GetComponent<AudioSource>();
+        musicSource.Play();
     }
 }

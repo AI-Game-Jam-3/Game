@@ -23,10 +23,11 @@ public class LevelAnimation : MonoBehaviour
 
     public delegate void Handler();
     public event Handler QuitAnimationFinish;
-    //public event Handler EnterAnimationFinish;
+    public bool isPlaying;
 
     IEnumerator QuitAnimationPhase1()
     {
+        isPlaying = true;
         var frame = QuitPhase1Time * frameCount;
         for (int i = 0; i < frame; i++)
         {
@@ -54,6 +55,7 @@ public class LevelAnimation : MonoBehaviour
             backgroundRender.color = backgroundColor;
             yield return new WaitForSecondsRealtime(QuitPhase2Time / frame);
         }
+        isPlaying = false;
         QuitAnimationFinish();
     }
 
@@ -76,8 +78,9 @@ public class LevelAnimation : MonoBehaviour
         StartCoroutine(QuitAnimationPhase1());
     }
 
-    private IEnumerator EnterAnimation()
+    IEnumerator EnterAnimation()
     {
+        isPlaying = true;
         var frame = frameCount * EnterTime;
         for(int i = 1; i <= frame; i++)
         {
@@ -87,7 +90,7 @@ public class LevelAnimation : MonoBehaviour
             characterRenderer.size = characterSize * i / frame;
             yield return new WaitForSecondsRealtime(EnterTime / frame);
         }
-        //EnterAnimationFinish();
+        isPlaying = false;
     }
 
     public void TriggerEnterAnimation()
