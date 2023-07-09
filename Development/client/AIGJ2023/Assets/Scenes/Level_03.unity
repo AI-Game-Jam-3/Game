@@ -3254,6 +3254,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1210175435}
     m_Modifications:
+    - target: {fileID: 8905776420033743584, guid: b2c1d401c1e9ec74fa7bbb19b143b92f, type: 3}
+      propertyPath: achievements.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ac194f6f0cc852647a0469c88067b118, type: 2}
+    - target: {fileID: 8905776420033743584, guid: b2c1d401c1e9ec74fa7bbb19b143b92f, type: 3}
+      propertyPath: achievements.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e6cf63e24cc1a458dae44e4fdff47c, type: 2}
     - target: {fileID: 8905776420033743585, guid: b2c1d401c1e9ec74fa7bbb19b143b92f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -13204,6 +13212,10 @@ PrefabInstance:
       value: collection_01 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 4648561640208626011, guid: 97d92e9431988b74094e10530e03727d, type: 3}
+      propertyPath: CollectName
+      value: Broken Clip
+      objectReference: {fileID: 0}
+    - target: {fileID: 4648561640208626011, guid: 97d92e9431988b74094e10530e03727d, type: 3}
       propertyPath: afterCollectedSprite
       value: 
       objectReference: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
@@ -14912,7 +14924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8341892063865190011, guid: bbf1aacead499b14eba99de5ec7168b1, type: 3}
       propertyPath: nextLevelIndex
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8341892063865190013, guid: bbf1aacead499b14eba99de5ec7168b1, type: 3}
       propertyPath: m_RootOrder
@@ -16452,6 +16464,10 @@ PrefabInstance:
     - target: {fileID: 4648561640208626009, guid: 97d92e9431988b74094e10530e03727d, type: 3}
       propertyPath: m_Name
       value: collection_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4648561640208626011, guid: 97d92e9431988b74094e10530e03727d, type: 3}
+      propertyPath: CollectName
+      value: Vivians Clip
       objectReference: {fileID: 0}
     - target: {fileID: 4648561640208626011, guid: 97d92e9431988b74094e10530e03727d, type: 3}
       propertyPath: afterCollectedSprite

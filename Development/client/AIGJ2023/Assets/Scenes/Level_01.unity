@@ -8646,6 +8646,10 @@ PrefabInstance:
       propertyPath: message
       value: But unfortunately, they cannot accompany you forever.
       objectReference: {fileID: 0}
+    - target: {fileID: 4648561640208626011, guid: 97d92e9431988b74094e10530e03727d, type: 3}
+      propertyPath: CollectName
+      value: Broken Gift
+      objectReference: {fileID: 0}
     - target: {fileID: 4648561640208626012, guid: 97d92e9431988b74094e10530e03727d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -9710,6 +9714,10 @@ PrefabInstance:
     - target: {fileID: 4648561640208626010, guid: 97d92e9431988b74094e10530e03727d, type: 3}
       propertyPath: message
       value: Sometimes, friends will make you open. Got collection2.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4648561640208626011, guid: 97d92e9431988b74094e10530e03727d, type: 3}
+      propertyPath: CollectName
+      value: Daddy's Gift
       objectReference: {fileID: 0}
     - target: {fileID: 4648561640208626012, guid: 97d92e9431988b74094e10530e03727d, type: 3}
       propertyPath: m_RootOrder

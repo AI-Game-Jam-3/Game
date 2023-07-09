@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11ea2f18c3029e64382a3bb8c6d55514, type: 3}
   m_Name: DrugB
   m_EditorClassIdentifier: 
-  Title: Drug A
+  Title: Drug B
   Icon: {fileID: 21300000, guid: 86502893fd842d94f90c35e4f38e506f, type: 3}
+  IconInCell: {fileID: 0}
   Content: 'Countless drugs are swallowed up, and what awaits Atticus in front of
     him is an endless abyss or a sharp turn for a better future.
 

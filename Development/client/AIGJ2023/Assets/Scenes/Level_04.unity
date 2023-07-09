@@ -12969,6 +12969,10 @@ PrefabInstance:
       value: collection_01 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4648561640208626011, guid: 97d92e9431988b74094e10530e03727d, type: 3}
+      propertyPath: CollectName
+      value: Drug A
+      objectReference: {fileID: 0}
+    - target: {fileID: 4648561640208626011, guid: 97d92e9431988b74094e10530e03727d, type: 3}
       propertyPath: afterCollectedSprite
       value: 
       objectReference: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
@@ -16886,6 +16890,10 @@ PrefabInstance:
     - target: {fileID: 4648561640208626009, guid: 97d92e9431988b74094e10530e03727d, type: 3}
       propertyPath: m_Name
       value: collection_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4648561640208626011, guid: 97d92e9431988b74094e10530e03727d, type: 3}
+      propertyPath: CollectName
+      value: Drug B
       objectReference: {fileID: 0}
     - target: {fileID: 4648561640208626011, guid: 97d92e9431988b74094e10530e03727d, type: 3}
       propertyPath: afterCollectedSprite
