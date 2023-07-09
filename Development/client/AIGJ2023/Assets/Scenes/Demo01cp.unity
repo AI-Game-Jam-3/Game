@@ -14365,6 +14365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 0}
   interactInScene: {fileID: 0}
+  echoAnimator: {fileID: 0}
 --- !u!4 &2119749971
 Transform:
   m_ObjectHideFlags: 0
@@ -14387,6 +14388,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1466691872}
     m_Modifications:
+    - target: {fileID: 310668737915099548, guid: 87bf3b77862d3c9478d2c461f15d31bc, type: 3}
+      propertyPath: LightRadius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 310668737915099549, guid: 87bf3b77862d3c9478d2c461f15d31bc, type: 3}
       propertyPath: bIsWall
       value: 1
