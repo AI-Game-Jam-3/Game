@@ -14,7 +14,7 @@ public class FlyCollection : MonoBehaviour
         // 计算屏幕右下角的世界坐标
         Vector3 screenPos = new Vector3(Screen.width, Screen.height, 0);
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
-        worldPos += new Vector3(10.0f, -10.0f, 0);
+        worldPos += new Vector3(0.0f, -10.0f, 0);
 
         // 使用DOTWEEN从当前位置飞向屏幕右下角然后消失
         transform.DOMove(worldPos, Speed).SetDelay(0.5f).OnComplete(() => {
