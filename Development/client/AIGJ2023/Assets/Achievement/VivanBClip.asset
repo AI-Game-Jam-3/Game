@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ea2f18c3029e64382a3bb8c6d55514, type: 3}
+  m_Name: VivanBClip
+  m_EditorClassIdentifier: 
+  Title: Broken Clip
+  Icon: {fileID: 21300000, guid: 69ed5ee08ab334249a644f0838e482c3, type: 3}
+  Content: 'Disaster always falls on the less fortunate, and Vivian dies one night
+    after being hit by a car driven by a drunk driver and taken to the hospital.
+    The news was a major blow to Atticus, who felt his life was once again plunged
+    into darkness and unable to extricate himself. He begins to doubt his life and
+    destiny, and the pain and depression overwhelm him again. He feels that he has
+    lost everything and his life has become meaningless.
+
+    Atticus could not
+    accept Vivian''s departure, he could not forget her smile and love, and the good
+    times they had together. He feels that he has lost all hope and motivation, and
+    that life has become meaningless. Atticus is in deep despair, unable to extricate
+    himself, and he needs time and support to come out gradually.'
+  Unlock: 1
