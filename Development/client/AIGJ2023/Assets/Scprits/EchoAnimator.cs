@@ -27,7 +27,7 @@ public class EchoAnimator : MonoBehaviour
 
     IEnumerator AnimatorController()
     {
-        while (alwaysShow)
+        do
         {
             foreach (var frame in frames)
             {
@@ -38,7 +38,7 @@ public class EchoAnimator : MonoBehaviour
                 }
                 yield return new WaitForSecondsRealtime(1.0f / framerate);
             }
-        }
+        } while (alwaysShow);
         GameObject.Destroy(echoObject);
     }
 

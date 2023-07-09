@@ -34,6 +34,8 @@ public class LevelAnimation : MonoBehaviour
             {
                 var color = LightingColor;
                 color.a = (float)i/ frame;
+                Material material = renderer.material;
+                material.SetColor("_BaseColor", color);
                 renderer.color = color;
                 virtualCamera.m_Lens.OrthographicSize += cameraZoomDeltaAbs / frame;
             }
