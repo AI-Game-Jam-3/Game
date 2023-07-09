@@ -5,14 +5,26 @@ using UnityEngine.UI;
 
 public class StartMenu : MonoBehaviour
 {
+    public bool IsPanelOpen;
     public List<GameObject> Positions;
     public List<GameObject> Buttons;
     public GameObject Cursor;
     public int index = 0;
+    public AchievementSystem achievementSystem;
     private void Start() {
 
     }
     private void Update() {
+        if(achievementSystem.UI == null)
+        {
+            IsPanelOpen = false;
+        }
+
+        if(IsPanelOpen)
+        {
+            return;
+        }
+
         if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             index--;
@@ -64,6 +76,11 @@ public class StartMenu : MonoBehaviour
 
     public void EnterCollection()
     {
+        if(achievementSystem.UI == null)
+        {
+            IsPanelOpen = true;
+            achievementSystem.Show();
+        }
         Debug.Log("EnterCollection");
     }
 

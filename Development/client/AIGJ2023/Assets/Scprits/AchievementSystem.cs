@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class AchievementSystem : MonoBehaviour
 {
     public List<Achievement> achievements;
     public GameObject uiPrefab;
     private GameObject ui;
+    public GameObject UI => ui;
 
     public void SetAchievementStatus(string title, bool isUnlock = true)
     {
@@ -19,7 +21,7 @@ public class AchievementSystem : MonoBehaviour
 
     public void Show()
     {
-        UIManager.Instance.HideOthers(this);
+        UIManager.Instance?.HideOthers(this);
 
         ui = GameObject.Instantiate(uiPrefab);
         ui.transform.SetParent(this.transform);
@@ -38,25 +40,26 @@ public class AchievementSystem : MonoBehaviour
 
         var buttonGap = -buttonRect.anchoredPosition.y;
         var buttonHeight = buttonRect.sizeDelta.y;
-        var panelHeight = achievements.Count * (buttonGap+buttonHeight) + buttonGap;
+        var panelHeight = achievements.Count * (buttonGap + buttonHeight) + buttonGap;
         var panelWidth = panelRect.sizeDelta.x;
         panelRect.sizeDelta = new Vector2(panelWidth, panelHeight);
 
         bool isShowAchievementContent = false;
 
-        for(int i = 0; i < achievements.Count; i++)
+        for (int i = 0; i < achievements.Count; i++)
         {
             var index = i;
             var buttonObject = GameObject.Instantiate(button);
             buttonObject.name = "Achievement" + i.ToString();
             buttonObject.transform.SetParent(button.transform.parent);
             buttonObject.transform.localScale = Vector3.one;
-            buttonObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, - i * (buttonGap + buttonHeight) - buttonGap);
+            buttonObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -i * (buttonGap + buttonHeight) - buttonGap);
 
             if (achievements[i].Unlock)
             {
                 buttonObject.GetComponentInChildren<Text>().text = achievements[i].Title;
-                buttonObject.GetComponent<Button>().onClick.AddListener(() => {
+                buttonObject.GetComponent<Button>().onClick.AddListener(() =>
+                {
                     Debug.Log(achievements[index].Content);
                     text.text = achievements[index].Content;
                     text.fontSize = 30;
@@ -65,7 +68,7 @@ public class AchievementSystem : MonoBehaviour
                     icon.color = Color.white;
                     title.text = achievements[index].Title;
                 });
-                if(!isShowAchievementContent)
+                if (!isShowAchievementContent)
                 {
                     text.text = achievements[index].Content;
                     text.fontSize = 30;
@@ -88,18 +91,21 @@ public class AchievementSystem : MonoBehaviour
 
     public void Close()
     {
-        UIManager.Instance.ShowOthers();
+        UIManager.Instance?.ShowOthers();
         GameObject.Destroy(ui);
     }
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (SceneManager.GetActiveScene().name != "StartScene")
         {
-            if (ui == null && UIManager.Instance.currentPanel == null)
-                Show();
-            else if(ui != null)
-                Close();
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                if (ui == null && UIManager.Instance.currentPanel == null)
+                    Show();
+                else if (ui != null)
+                    Close();
+            }
         }
     }
 }

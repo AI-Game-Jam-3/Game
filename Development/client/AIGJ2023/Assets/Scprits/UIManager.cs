@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     {
         get
         {
-            if(_instance == null)
+            if (_instance == null)
             {
                 _instance = FindObjectOfType<UIManager>();
             }
@@ -17,8 +17,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void Awake() {
-        if(_instance == null)
+    private void Awake()
+    {
+        if (_instance == null)
         {
             _instance = this;
         }
@@ -37,9 +38,12 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        panels.Add(setting);
-        panels.Add(messageBox);
-        panels.Add(achievementSystem);
+        if (setting != null)
+            panels.Add(setting);
+        if (messageBox != null)
+            panels.Add(messageBox);
+        if (achievementSystem != null)
+            panels.Add(achievementSystem);
     }
 
     // Update is called once per frame
@@ -51,9 +55,9 @@ public class UIManager : MonoBehaviour
     public void HideOthers(MonoBehaviour cur)
     {
         currentPanel = cur;
-        foreach(var panel in panels)
+        foreach (var panel in panels)
         {
-            if(panel != currentPanel)
+            if (panel != currentPanel)
             {
                 (panel as MonoBehaviour).gameObject.SetActive(false);
             }
@@ -62,9 +66,9 @@ public class UIManager : MonoBehaviour
 
     public void ShowOthers()
     {
-        foreach(var panel in panels)
+        foreach (var panel in panels)
         {
-            if(panel != currentPanel)
+            if (panel != currentPanel)
             {
                 (panel as MonoBehaviour).gameObject.SetActive(true);
             }

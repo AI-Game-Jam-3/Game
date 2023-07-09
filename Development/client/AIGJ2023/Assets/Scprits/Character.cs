@@ -13,6 +13,7 @@ public class Character : MonoBehaviour
     public bool CanTransfer;
     public TransferGate CurrentGate;
     public EchoAnimator echoAnimator;
+    public Vector2 CurrentCoord;
 
     public bool IsGoingToShout;
 
@@ -143,6 +144,7 @@ public class Character : MonoBehaviour
     void CheckTransferGate()
     {
         var coord = MapManager.Instance.Pos2Coord(transform.position);
+        CurrentCoord = coord;
         var unit = MapManager.Instance.currentMap.GetUnit(coord);
         if(unit != null)
         {
