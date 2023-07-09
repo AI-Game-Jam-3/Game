@@ -19,6 +19,10 @@ public class MapUnit : MonoBehaviour
             {
                 return false;
             }
+            if(UnitType == "Torch")
+            {
+                return false;
+            }
             return true;
         }
     }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Achievement : ScriptableObject
 {
     public string Title = "N/A";
+    public Sprite Icon;
     public string Content = "N/A";
     public bool Unlock = false;
 }

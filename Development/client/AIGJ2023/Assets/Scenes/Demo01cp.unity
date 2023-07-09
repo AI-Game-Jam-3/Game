@@ -14365,7 +14365,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 0}
   interactInScene: {fileID: 0}
-  echoAnimator: {fileID: 0}
 --- !u!4 &2119749971
 Transform:
   m_ObjectHideFlags: 0

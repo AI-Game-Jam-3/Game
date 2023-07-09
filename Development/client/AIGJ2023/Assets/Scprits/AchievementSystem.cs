@@ -103,5 +103,4 @@ public class AchievementSystem : MonoBehaviour
                 Close();
         }
     }
-
 }
