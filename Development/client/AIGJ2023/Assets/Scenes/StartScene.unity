@@ -1276,22 +1276,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2877388998249035456, guid: 327db678338923244aead5ce9134b9d8, type: 3}
-      propertyPath: levelNames.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2877388998249035456, guid: 327db678338923244aead5ce9134b9d8, type: 3}
-      propertyPath: levelNames.Array.data[2]
-      value: Level_02
-      objectReference: {fileID: 0}
-    - target: {fileID: 2877388998249035456, guid: 327db678338923244aead5ce9134b9d8, type: 3}
-      propertyPath: levelNames.Array.data[3]
-      value: Level_03
-      objectReference: {fileID: 0}
-    - target: {fileID: 2877388998249035456, guid: 327db678338923244aead5ce9134b9d8, type: 3}
-      propertyPath: levelNames.Array.data[5]
-      value: IntermediateScene
-      objectReference: {fileID: 0}
     - target: {fileID: 2877388998249035462, guid: 327db678338923244aead5ce9134b9d8, type: 3}
       propertyPath: m_Name
       value: GameManger
