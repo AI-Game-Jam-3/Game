@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public Character character;
     public InteractInScene interactInScene;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
         {
             interactInScene.InteractWithBreakableWall();
         };
-        
+
     }
 
     // Update is called once per frame

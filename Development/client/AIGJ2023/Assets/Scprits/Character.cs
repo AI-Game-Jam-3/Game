@@ -49,7 +49,7 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        CheckTransferGate();
         if (MoveDirection != Vector2.zero)
         {
             //LastCharacterUnit = getCurrentPlayerUnit();
@@ -133,6 +133,26 @@ public class Character : MonoBehaviour
             return;
         }
         transform.Translate(MoveDirection * MapManager.Instance.CELL_SIZE);
+
+
+    }
+
+
+    void CheckTransferGate()
+    {
+        var coord = MapManager.Instance.Pos2Coord(transform.position);
+        var unit = MapManager.Instance.currentMap.GetUnit(coord);
+        if(unit != null)
+        {
+            if(unit.TryGetComponent<TransferGate>(out var gate))
+            {
+                CurrentGate = gate;
+                CanTransfer = true;
+            }
+            return;
+        }
+        CurrentGate = null;
+        CanTransfer = false;
     }
 
     [Button("返回原始位置")]

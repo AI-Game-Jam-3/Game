@@ -16,7 +16,8 @@ public class Collect : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(!triggered && other.TryGetComponent<SmallTrigger>(out var comp))
         {
-            spriteRenderer.sprite = afterCollectedSprite;
+            // spriteRenderer.sprite = afterCollectedSprite;
+            spriteRenderer.material.SetTexture("_MainTex", afterCollectedSprite.texture);
             UIManager.Instance.achievementSystem.SetAchievementStatus("Collect1", true);
             triggered = true;
         }
