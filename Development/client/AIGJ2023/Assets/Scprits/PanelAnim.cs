@@ -25,7 +25,7 @@ public class PanelAnim : MonoBehaviour
     void Update()
     {
         // ��������ת����
-        if(isGoingToClose && Input.GetKeyDown(KeyCode.Space))
+        if(isGoingToClose && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(0)))
         {
             StartCoroutine(HidePanel(panel));
         }
