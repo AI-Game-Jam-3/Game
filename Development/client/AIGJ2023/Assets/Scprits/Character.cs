@@ -2,9 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
-using UnityEditorInternal;
-using static UnityEngine.UI.CanvasScaler;
-using System.Drawing;
 
 public class Character : MonoBehaviour
 {
@@ -13,6 +10,8 @@ public class Character : MonoBehaviour
     [LabelText("原始位置")]
     public Vector3 OriginPos;
     UnityEngine.Color PrePosColor = UnityEngine.Color.white;
+    public bool CanTransfer;
+    public TransferGate CurrentGate;
 
     public bool IsGoingToShout;
 

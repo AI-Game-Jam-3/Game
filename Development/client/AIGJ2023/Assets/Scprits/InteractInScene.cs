@@ -60,8 +60,10 @@ public class InteractInScene : MonoBehaviour
                 var breakableWall = targetUnit.GetComponentInChildren<BreakableWall>();
                 if (breakableWall != null && !breakableWall.breaked)
                 {
-                    breakableWall.GetComponentInChildren<SpriteRenderer>().gameObject.SetActive(false);
+                    var renderer = breakableWall.GetComponentInChildren<SpriteRenderer>();
                     breakableWall.breaked = true;
+                    breakableWall.GetComponentInChildren<MapUnit>().bIsWall = false;
+                    renderer.sprite = breakableWall.breakedSprite;
                 }
             }
         }

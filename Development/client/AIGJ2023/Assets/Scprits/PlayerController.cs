@@ -41,6 +41,10 @@ public class PlayerController : MonoBehaviour
         {
             interactInScene.Interactive();
         }
+        else if(Input.GetKeyDown(KeyCode.T))
+        {
+            character.CurrentGate?.Transfer(character.transform);
+        }
         else
         {
             character.MoveDirection = Vector2.zero;
