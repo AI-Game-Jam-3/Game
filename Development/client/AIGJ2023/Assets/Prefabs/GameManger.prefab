@@ -48,5 +48,6 @@ MonoBehaviour:
   - Level_01
   - Level_02
   - Level_03
+  - Level_04
   - StartScene
   currentLevelIndex: 0

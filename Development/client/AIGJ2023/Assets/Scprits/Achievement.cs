@@ -8,6 +8,7 @@ public class Achievement : ScriptableObject
 {
     public string Title = "N/A";
     public Sprite Icon;
+    public Sprite IconInCell;
     [TextArea]
     public string Content = "N/A";
     public bool Unlock = false;
