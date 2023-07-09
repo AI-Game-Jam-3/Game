@@ -1,5 +1,74 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4735470795346743585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1909091653635165142}
+  - component: {fileID: 3071931807778835978}
+  m_Layer: 0
+  m_Name: Exit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1909091653635165142
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4735470795346743585}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8341892063865190013}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3071931807778835978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4735470795346743585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3a6139a009c18645a20c7e2196b4d0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playOnAwake: 1
+  alwaysShow: 1
+  size: 1
+  framerate: 20
+  frames:
+  - {fileID: 21300000, guid: dcde5fe6d402c8d499a8257e79890994, type: 3}
+  - {fileID: 21300000, guid: 26acc01dbd0a7f24c93b7995bf07bbfe, type: 3}
+  - {fileID: 21300000, guid: 8f2f106fe50b9d340bcdf602830f0e25, type: 3}
+  - {fileID: 21300000, guid: 6e528df77408f6445849ab569a1d38ec, type: 3}
+  - {fileID: 21300000, guid: 4b15eeda73b5a0a4fb7eac0b64a971b3, type: 3}
+  - {fileID: 21300000, guid: 95d159c81c2830e4f935b94aacac6c36, type: 3}
+  - {fileID: 21300000, guid: 26289080abb0d394ab0ab3485523358c, type: 3}
+  - {fileID: 21300000, guid: 56ee18fa77e0a2c4aa708d33cd70da7e, type: 3}
+  - {fileID: 21300000, guid: 0b7e183262eac3a41bbe8f6451211f3c, type: 3}
+  - {fileID: 21300000, guid: 9b2fbe252b88f1d48811eba54cd9a6b4, type: 3}
+  - {fileID: 21300000, guid: 1f17064ff455b294da9793ad71816e27, type: 3}
+  - {fileID: 21300000, guid: 7903d5928ceb0f34ba1756b9d8d51462, type: 3}
+  - {fileID: 21300000, guid: 7897c219c369d9d4bb24e14c75525ff0, type: 3}
+  - {fileID: 21300000, guid: e7ab5bda8e280304f9241f03c50dde34, type: 3}
+  - {fileID: 21300000, guid: 04e76c79e146d1c4d854629768c899ef, type: 3}
+  - {fileID: 21300000, guid: 7c43330c90d85f0438661726ea3c7597, type: 3}
+  - {fileID: 21300000, guid: 88058275ab0300d409b59f2937f94095, type: 3}
+  - {fileID: 21300000, guid: 219b3b6cee3f2f449873a60b61c732cc, type: 3}
+  - {fileID: 21300000, guid: 42374582f639514498427c5772d3e148, type: 3}
+  - {fileID: 21300000, guid: 7dc5c23aa30789341bf903a7ef4ea7e9, type: 3}
+  - {fileID: 21300000, guid: 4a43a43bad55c31469b09bd0439a2691, type: 3}
 --- !u!1 &8341892063865190010
 GameObject:
   m_ObjectHideFlags: 0
@@ -29,7 +98,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.5, y: -8.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1909091653635165142}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -84,5 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4a359de30f546342b3df72f47981665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationTime: 5
+  EnterTime: 2
+  QuitPhase1Time: 2
+  QuitPhase2Time: 2
   LightingColor: {r: 1, g: 1, b: 1, a: 1}
+  CameraZoomDelta: 0.2

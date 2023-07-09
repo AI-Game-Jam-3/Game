@@ -47,7 +47,9 @@ MonoBehaviour:
   - walk
   - echo
   - breakWall
+  - switch
   audioClip:
-  - {fileID: 8300000, guid: 3b4c069eea7e7884fb71cf4a3d39902d, type: 3}
-  - {fileID: 8300000, guid: e620d97f13dcadd4a90dfd6e3a1f0a36, type: 3}
-  - {fileID: 8300000, guid: 9ed37e5c47e09f14f8a796f073044a89, type: 3}
+  - {fileID: 8300000, guid: 2de8ac3fc5a804e4f9d360fb93a2515c, type: 3}
+  - {fileID: 8300000, guid: 97e7e31a61c7e594698c522eb6993d2f, type: 3}
+  - {fileID: 8300000, guid: 9f7c8a8c43d1ccc4c98772e14804e904, type: 3}
+  - {fileID: 8300000, guid: 03f275a2d31c6b642999b9f45a6e9bf0, type: 3}

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EchoAnimator : MonoBehaviour
 {
+    public bool playOnAwake = false;
+    public bool alwaysShow = false;
     public float size;
     public float framerate;
     public List<Sprite> frames;
@@ -18,21 +20,31 @@ public class EchoAnimator : MonoBehaviour
         echoObject.transform.localPosition = Vector3.zero;
         renderer = echoObject.AddComponent<SpriteRenderer>();
         renderer.drawMode = SpriteDrawMode.Sliced;
-        renderer.size = size * Vector2.one;
         renderer.color = Color.white;
+        renderer.sortingOrder = 10;
         StartCoroutine(AnimatorController());
     }
 
     IEnumerator AnimatorController()
     {
-        foreach (var frame in frames)
+        while (alwaysShow)
         {
-            if(renderer != null)
+            foreach (var frame in frames)
             {
-                renderer.sprite = frame;
+                if (renderer != null)
+                {
+                    renderer.sprite = frame;
+                    renderer.size = size * Vector2.one;
+                }
+                yield return new WaitForSecondsRealtime(1.0f / framerate);
             }
-            yield return new WaitForSecondsRealtime(1.0f / framerate);
         }
         GameObject.Destroy(echoObject);
+    }
+
+    void Start()
+    {
+        if(playOnAwake)
+            TriggerEchoAnimation();
     }
 }

@@ -9,6 +9,7 @@ public class Torch : MonoBehaviour
 
     public void LightAround()
     {
+        AudioPlayer.Instance.PlayClip("switch");
         IsLighting = true;
         for(int y = -LightRadius; y <= LightRadius; y++)
         {
