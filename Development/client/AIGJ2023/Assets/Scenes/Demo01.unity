@@ -499,6 +499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CELL_SIZE: 1
   currentMap: {fileID: 76975537}
+  TorchUnitsGroup: []
 --- !u!4 &57344035
 Transform:
   m_ObjectHideFlags: 0
@@ -12931,6 +12932,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2119749971}
     m_Modifications:
+    - target: {fileID: 1169589937379409102, guid: d00039c27f7016c4a8f57bee12d72462, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2090365259555183257, guid: d00039c27f7016c4a8f57bee12d72462, type: 3}
       propertyPath: m_DrawMode
       value: 1
@@ -14883,6 +14888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 0}
+  interactInScene: {fileID: 0}
 --- !u!4 &2119749971
 Transform:
   m_ObjectHideFlags: 0
