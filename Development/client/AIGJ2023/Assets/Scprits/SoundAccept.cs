@@ -25,10 +25,13 @@ public class SoundAccept : MonoBehaviour
         }
     }
 
-    [HideInInspector] public bool isFire = false;
-    [HideInInspector] public bool isShout = false;
-    [HideInInspector] public bool isBreak = false;
-
+    //[HideInInspector] public bool isFire = false;
+    //[HideInInspector] public bool isShout = false;
+    //[HideInInspector] public bool isBreak = false;
+    public event Action OnShout;
+    public event Action OnFire;
+    public event Action OnBreak;
+    
     //public OtherScript otherScript;
     [HideInInspector]public string mes;
 
@@ -130,10 +133,7 @@ public class SoundAccept : MonoBehaviour
                             var incommingData = new byte[length];
                             Array.Copy(bytes, 0, incommingData, 0, length);
                             string clientMessage = Encoding.ASCII.GetString(incommingData);
-                            //test
-                            if (Input.GetKeyDown(KeyCode.P)) clientMessage = "hello";
                             startInvoke(clientMessage);
-
                         }
                     }
                 }
@@ -151,22 +151,23 @@ public class SoundAccept : MonoBehaviour
         {
             case "hello":
                 // 执行声波点亮
-                isShout = true;
-                UnityEngine.Debug.Log("hello");
+                //isShout = true;
+                OnShout?.Invoke();
                 break;
             case "break":
                 // 执行打破墙壁
-                isBreak = true;
+                //isBreak = true;
+                OnBreak?.Invoke();
                 break;
             case "fire":
                 // 执行点亮火把
-                isFire = true;
+                //isFire = true;
+                OnFire?.Invoke();
                 break;
             default:
                 // 如果上述条件都不满足，则执行默认操作
                 break;
         }
-
     }
     // Update is called once per frame
     void Update()

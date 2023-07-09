@@ -13,6 +13,18 @@ public class PlayerController : MonoBehaviour
     {
         character = GetComponentInChildren<Character>();
         interactInScene = GetComponentInChildren<InteractInScene>();
+        SoundAccept.Instance.OnShout += () =>
+        {
+            character.SetGoingToShout(true);
+        };
+        SoundAccept.Instance.OnFire += () =>
+        {
+            interactInScene.InteractWithFire();
+        };
+        SoundAccept.Instance.OnBreak += () =>
+        {
+            interactInScene.InteractWithBreakableWall();
+        };
         
     }
 
@@ -46,12 +58,6 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.T))
         {
             character.CurrentGate?.Transfer(character.transform);
-        }
-        else if (SoundAccept.Instance.isShout)
-        {
-            character.SetGoingToShout(true);
-
-            SoundAccept.Instance.isShout = false;
         }
         else
         {
