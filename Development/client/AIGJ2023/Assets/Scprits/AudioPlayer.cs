@@ -9,6 +9,8 @@ public class AudioPlayer : MonoBehaviour
     public List<string> audioName;
     public List<AudioClip> audioClip;
 
+    private Dictionary<string, AudioSource> playingAudio;
+
     private static AudioPlayer instance;
     public static AudioPlayer Instance
     {
@@ -22,9 +24,15 @@ public class AudioPlayer : MonoBehaviour
         }
     }
 
-    IEnumerator WaitAndDestroyAudioSource(AudioSource source, float time)
+    void Start()
+    {
+        playingAudio = new Dictionary<string, AudioSource>();
+    }
+
+    IEnumerator WaitAndDestroyAudioSource(string name, AudioSource source, float time)
     {
         yield return new WaitForSeconds(time);
+        playingAudio.Remove(name);
         GameObject.Destroy(source);
     }
 
@@ -33,23 +41,22 @@ public class AudioPlayer : MonoBehaviour
         for(int i = 0; i < audioName.Count; i++)
         {
             if (audioName[i] == clip)
-                PlayClip(audioClip[i], len, volumn, isLoop);
-        }
-    }
-
-    public void PlayClip(AudioClip clip, float len = 0, float volumn = 1, bool isLoop = false)
-    {
-        var audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.clip = clip;
-        audioSource.volume = volumn;
-        audioSource.loop = isLoop;
-        audioSource.Play();
-        if (!isLoop)
-        {
-            if (len == 0)
-                StartCoroutine(WaitAndDestroyAudioSource(audioSource, clip.length));
-            else
-                StartCoroutine(WaitAndDestroyAudioSource(audioSource, len));
+            {
+                if(playingAudio.ContainsKey(clip))
+                    GameObject.Destroy(playingAudio[clip]);
+                var audioSource = gameObject.AddComponent<AudioSource>();
+                audioSource.clip = audioClip[i];
+                audioSource.volume = volumn;
+                audioSource.loop = isLoop;
+                audioSource.Play();
+                if (!isLoop)
+                {
+                    if (len == 0)
+                        StartCoroutine(WaitAndDestroyAudioSource(clip, audioSource, audioClip[i].length));
+                    else
+                        StartCoroutine(WaitAndDestroyAudioSource(clip, audioSource, len));
+                }
+            }
         }
     }
 
