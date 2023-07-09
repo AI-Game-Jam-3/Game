@@ -996,14 +996,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1087233316}
     m_Modifications:
-    - target: {fileID: 8905776420033743584, guid: b2c1d401c1e9ec74fa7bbb19b143b92f, type: 3}
-      propertyPath: achievements.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: f14d9bca6bd268447b65b74a001ee2a3, type: 2}
-    - target: {fileID: 8905776420033743584, guid: b2c1d401c1e9ec74fa7bbb19b143b92f, type: 3}
-      propertyPath: achievements.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 0aa6b3652fd81c446a32a96c57d1fbe6, type: 2}
     - target: {fileID: 8905776420033743585, guid: b2c1d401c1e9ec74fa7bbb19b143b92f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3781,6 +3773,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message: Do you miss the lamp?
   triggered: 0
+  clearMessageTime: 3
 --- !u!4 &265248851
 Transform:
   m_ObjectHideFlags: 0
@@ -3793,7 +3786,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &271762306
 PrefabInstance:
@@ -3986,6 +3979,7 @@ MonoBehaviour:
   message: 'Atticus: I wish that disaster had happened to me. Vivian, the world is
     wrong, why are you the one who suffers?'
   triggered: 0
+  clearMessageTime: 3
 --- !u!4 &303669610
 Transform:
   m_ObjectHideFlags: 0
@@ -5280,9 +5274,9 @@ Transform:
   - {fileID: 630779327}
   - {fileID: 1954567305}
   - {fileID: 1483746484}
+  - {fileID: 2121544588}
   - {fileID: 828667837}
   - {fileID: 615632911}
-  - {fileID: 2121544588}
   m_Father: {fileID: 467767967}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6571,6 +6565,7 @@ MonoBehaviour:
   message: 'Light up more than just darkness Press "F" or the audio input 3 times 
     "Fire" to light up the area. '
   triggered: 0
+  clearMessageTime: 3
 --- !u!4 &556619737
 Transform:
   m_ObjectHideFlags: 0
@@ -6583,7 +6578,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &558591060
 PrefabInstance:
@@ -12466,6 +12461,7 @@ MonoBehaviour:
   message: 'The breakthrough starts here Press "F" or the audio input 3 times "Break"
     to destroy special walls. '
   triggered: 0
+  clearMessageTime: 3
 --- !u!4 &1119276079
 Transform:
   m_ObjectHideFlags: 0
@@ -12478,7 +12474,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1129946677
 PrefabInstance:
@@ -12925,6 +12921,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message: Do you miss the lamp?
   triggered: 0
+  clearMessageTime: 3
 --- !u!4 &1206136701
 Transform:
   m_ObjectHideFlags: 0
@@ -12937,7 +12934,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1208510332
 PrefabInstance:
