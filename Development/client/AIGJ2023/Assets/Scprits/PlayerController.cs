@@ -7,13 +7,13 @@ public class PlayerController : MonoBehaviour
 {
     public Character character;
     public InteractInScene interactInScene;
-    public EchoAnimator echoAnimator;
+    
     // Start is called before the first frame update
     void Start()
     {
         character = GetComponentInChildren<Character>();
         interactInScene = GetComponentInChildren<InteractInScene>();
-        echoAnimator = GetComponentInChildren<EchoAnimator>();
+        
     }
 
     // Update is called once per frame
@@ -38,7 +38,6 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Space))
         {
             character.SetGoingToShout(true);
-            echoAnimator.TriggerEchoAnimation();
         }
         else if (Input.GetKeyDown(KeyCode.F))
         {
