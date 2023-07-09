@@ -11,11 +11,15 @@ public class StartMenu : MonoBehaviour
     public GameObject Cursor;
     public int index = 0;
     public AchievementSystem achievementSystem;
+    public GameObject Credit;
+    public Button CreditBackButton;
     private void Start() {
-
+        CreditBackButton.onClick.AddListener(() => {
+            Credit.SetActive(false);
+        });
     }
     private void Update() {
-        if(achievementSystem.UI == null)
+        if(achievementSystem.UI == null && !Credit.activeSelf)
         {
             IsPanelOpen = false;
         }
@@ -86,6 +90,11 @@ public class StartMenu : MonoBehaviour
 
     public void OpenStaff()
     {
+        if(!Credit.activeSelf)
+        {
+            Credit.SetActive(true);
+            IsPanelOpen = true;
+        }
         Debug.Log("OpenStaff");
     }
 
