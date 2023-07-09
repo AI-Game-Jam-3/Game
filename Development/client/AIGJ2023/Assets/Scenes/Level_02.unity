@@ -2847,6 +2847,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5000453376085590310, guid: 16587408c87b80747824e72f275e9ba2, type: 3}
+      propertyPath: ground_tex
+      value: 
+      objectReference: {fileID: 2800000, guid: 845b47a3a8cdab14989cb0c659f30b32, type: 3}
     - target: {fileID: 5099564784454713689, guid: 16587408c87b80747824e72f275e9ba2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2913,6 +2917,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5000453376085590310, guid: 16587408c87b80747824e72f275e9ba2, type: 3}
+      propertyPath: ground_tex
+      value: 
+      objectReference: {fileID: 2800000, guid: 845b47a3a8cdab14989cb0c659f30b32, type: 3}
     - target: {fileID: 5099564784454713689, guid: 16587408c87b80747824e72f275e9ba2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -14490,6 +14498,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: collection_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4648561640208626010, guid: 97d92e9431988b74094e10530e03727d, type: 3}
+      propertyPath: message
+      value: 'The unreal thing is always fascinating. Achieve new item, Press "M"
+        to explore what happened to Atticus. '
+      objectReference: {fileID: 0}
     - target: {fileID: 4648561640208626011, guid: 97d92e9431988b74094e10530e03727d, type: 3}
       propertyPath: ground_tex
       value: 
@@ -15969,6 +15982,11 @@ PrefabInstance:
     - target: {fileID: 4648561640208626009, guid: 97d92e9431988b74094e10530e03727d, type: 3}
       propertyPath: m_Name
       value: collection_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4648561640208626010, guid: 97d92e9431988b74094e10530e03727d, type: 3}
+      propertyPath: message
+      value: 'The unreal thing is always fascinating. Achieve new item, Press "M"
+        to explore what happened to Atticus. '
       objectReference: {fileID: 0}
     - target: {fileID: 4648561640208626011, guid: 97d92e9431988b74094e10530e03727d, type: 3}
       propertyPath: ground_tex
@@ -20930,6 +20948,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5000453376085590310, guid: 16587408c87b80747824e72f275e9ba2, type: 3}
+      propertyPath: ground_tex
+      value: 
+      objectReference: {fileID: 2800000, guid: 845b47a3a8cdab14989cb0c659f30b32, type: 3}
     - target: {fileID: 5099564784454713689, guid: 16587408c87b80747824e72f275e9ba2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
