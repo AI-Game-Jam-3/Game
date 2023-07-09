@@ -43,9 +43,15 @@ public class PlayerController : MonoBehaviour
         {
             interactInScene.Interactive();
         }
-        else if(Input.GetKeyDown(KeyCode.T))
+        else if (Input.GetKeyDown(KeyCode.T))
         {
             character.CurrentGate?.Transfer(character.transform);
+        }
+        else if (SoundAccept.Instance.isShout)
+        {
+            character.SetGoingToShout(true);
+
+            SoundAccept.Instance.isShout = false;
         }
         else
         {
