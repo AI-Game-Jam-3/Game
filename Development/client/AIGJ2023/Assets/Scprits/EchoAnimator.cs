@@ -14,6 +14,8 @@ public class EchoAnimator : MonoBehaviour
 
     public void TriggerEchoAnimation()
     {
+        if(echoObject!=null)
+            GameManager.Destroy(echoObject);
         echoObject = new GameObject();
         echoObject.name = "EchoAnimation";
         echoObject.transform.SetParent(this.transform);
