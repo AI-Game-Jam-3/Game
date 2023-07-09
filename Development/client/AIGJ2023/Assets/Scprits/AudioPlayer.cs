@@ -26,10 +26,14 @@ public class AudioPlayer : MonoBehaviour
 
     void Start()
     {
+        audioSource = new Dictionary<string, AudioSource>();
         for(int i = 0; i < audioName.Count; i++)
         {
             var source = gameObject.AddComponent<AudioSource>();
             source.clip = audioClip[i];
+            source.playOnAwake = false;
+            source.loop = false;
+            source.Stop();
             audioSource.Add(audioName[i], source);
         }
     }
