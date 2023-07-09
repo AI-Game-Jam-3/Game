@@ -17,7 +17,44 @@ public class StartMenu : MonoBehaviour
         CreditBackButton.onClick.AddListener(() => {
             Credit.SetActive(false);
         });
+      
+        for (int i = 0; i < Buttons.Count; ++i)
+        {
+            Button btn = Buttons[i].GetComponent<Button>();
+            var j = i;
+            btn.onClick.AddListener(delegate () {
+                this.onStartMenuBtnClick(j); });
+            
+        }
+
     }
+
+
+    //void onStartMenuBtnEnter(int index)
+    //{
+    //    Cursor.transform.position = Positions[index].transform.position;
+    //}
+
+    void onStartMenuBtnClick(int index)
+    {
+       
+        switch (index)
+        {
+            case 0:
+                EnterGame();
+                break;
+            case 1:
+                EnterCollection();
+                break;
+            case 2:
+                OpenStaff();
+                break;
+            case 3:
+                ExitGame();
+                break;
+        }
+    }
+
     private void Update() {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
@@ -32,6 +69,8 @@ public class StartMenu : MonoBehaviour
                 IsPanelOpen = false;
             }
         }
+
+        
 
 
         if(achievementSystem.UI == null && !Credit.activeSelf)
