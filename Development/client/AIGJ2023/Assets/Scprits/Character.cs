@@ -12,6 +12,7 @@ public class Character : MonoBehaviour
     UnityEngine.Color PrePosColor = UnityEngine.Color.white;
     public bool CanTransfer;
     public TransferGate CurrentGate;
+    public EchoAnimator echoAnimator;
 
     public bool IsGoingToShout;
 
@@ -29,7 +30,7 @@ public class Character : MonoBehaviour
         IsCouldShout = true;
         IsFadeOut = false;
 
-
+        echoAnimator = GetComponentInChildren<EchoAnimator>();
         //StartCoroutine(Test());
     }
 
@@ -82,7 +83,7 @@ public class Character : MonoBehaviour
 
         if (IsCouldShout && IsGoingToShout)
         {
-
+            echoAnimator.TriggerEchoAnimation();
             IsCouldShout = false;
             IsFadeOut = false;
             PostUpdateMapExplore();
