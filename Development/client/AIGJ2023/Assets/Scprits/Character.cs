@@ -5,6 +5,7 @@ using Sirenix.OdinInspector;
 
 public class Character : MonoBehaviour
 {
+    public GameObject FlyObjectPrefab;
     [LabelText("移动方向")]
     public Vector2 MoveDirection;
     [LabelText("原始位置")]

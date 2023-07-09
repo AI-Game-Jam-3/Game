@@ -478,6 +478,7 @@ MonoBehaviour:
   message: Press "WASD" to move forward, backward, left and right; press "Space"
     or audio input "Hello" to light up the map.
   triggered: 0
+  clearMessageTime: 3
 --- !u!4 &87915856
 Transform:
   m_ObjectHideFlags: 0

@@ -27,6 +27,18 @@ public class Collect : MonoBehaviour
             spriteRenderer.material.SetColor("_BaseColor", color);
             UIManager.Instance.achievementSystem.SetAchievementStatus(CollectName, true); //UIManager.Instance.achievementSystem.SetAchievementStatus("Collect1", true);
             triggered = true;
+
+            var achievements = UIManager.Instance.achievementSystem.achievements;
+            for(int i = 0; i < achievements.Count; i++)
+            {
+                if(achievements[i].Title == CollectName)
+                {
+                    var icon = achievements[i].Icon;
+                    // 在当前位置设置一个飞行物体
+                    var flyObj = Instantiate(comp.character.FlyObjectPrefab, comp.character.transform.position, Quaternion.identity);
+                    flyObj.GetComponent<SpriteRenderer>().sprite = icon;
+                }
+            }
         }
     }
 }

@@ -352,6 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6deb9de51ff3b3c48bc5c7376d8d2bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FlyObjectPrefab: {fileID: 4714854971102721258, guid: aa168847b32308e458102f8c4085e4bf, type: 3}
   MoveDirection: {x: 0, y: 0}
   OriginPos: {x: 2.5, y: -2.5, z: -1}
   CanTransfer: 0
