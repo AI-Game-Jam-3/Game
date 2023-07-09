@@ -12091,6 +12091,7 @@ MonoBehaviour:
   message: 'Atticus: Only in this world can I be a hero to everyone. Illusion or
     reality, do these really matter so much?'
   triggered: 0
+  clearMessageTime: 3
 --- !u!4 &1002892717
 Transform:
   m_ObjectHideFlags: 0

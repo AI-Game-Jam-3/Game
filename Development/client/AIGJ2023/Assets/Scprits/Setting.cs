@@ -10,6 +10,8 @@ public class Setting : MonoBehaviour
     public string mainScene;
     public GameObject uiPrefab;
     private GameObject ui;
+    public GameObject OperationUI;
+    public Button OperationCancelButton;
 
     private void Awake()
     {
@@ -32,16 +34,22 @@ public class Setting : MonoBehaviour
 
         var restartButton = GameObject.Find("RestartButton").GetComponent<Button>();
         var quitButton = GameObject.Find("QuitButton").GetComponent<Button>();
-        // var controlButton = GameObject.Find("ControlButton").GetComponent<Button>();
+        var controlButton = GameObject.Find("ControlButton").GetComponent<Button>();
         var returnButton = GameObject.Find("ReturnButton").GetComponent<Button>();
         var controlPanel = GameObject.Find("ControlPanel");
+        OperationUI = GameObject.Find("Operation");
+        OperationCancelButton = GameObject.Find("OperationCancel").GetComponent<Button>();
+        OperationUI.SetActive(false);
         // controlPanel.SetActive(false);
 
         restartButton.onClick.AddListener(() => { var sceneName = SceneManager.GetActiveScene().name; SceneManager.LoadScene(sceneName); });
         quitButton.onClick.AddListener(() => { SceneManager.LoadScene(mainScene); });
+        controlButton.onClick.AddListener(() => { OperationUI.SetActive(true); });
         // controlButton.onClick.AddListener(() => { controlPanel.SetActive(true); });
         // returnButton.onClick.AddListener(() => { controlPanel.SetActive(false); });
         returnButton.onClick.AddListener(() => { Close(); });
+
+        OperationCancelButton.onClick.AddListener(() => { OperationUI.SetActive(false); });
 
         UIManager.Instance.HideOthers(this);
     }
