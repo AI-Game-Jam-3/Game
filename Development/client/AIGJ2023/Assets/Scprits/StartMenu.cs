@@ -19,6 +19,21 @@ public class StartMenu : MonoBehaviour
         });
     }
     private void Update() {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(Credit.activeSelf)
+            {
+                Credit.SetActive(false);
+                IsPanelOpen = false;
+            }
+            else if(achievementSystem.UI != null)
+            {
+                achievementSystem.Close();
+                IsPanelOpen = false;
+            }
+        }
+
+
         if(achievementSystem.UI == null && !Credit.activeSelf)
         {
             IsPanelOpen = false;

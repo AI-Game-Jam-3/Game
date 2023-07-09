@@ -106,6 +106,10 @@ public class AchievementSystem : MonoBehaviour
                 else if (ui != null)
                     Close();
             }
+            else if(Input.GetKeyDown(KeyCode.Escape) && ui != null)
+            {
+                Close();
+            }
         }
     }
 }
