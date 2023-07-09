@@ -123,6 +123,7 @@ public class InteractInScene : MonoBehaviour
             var breakableWall = targetUnit.GetComponentInChildren<BreakableWall>();
             if (breakableWall != null && !breakableWall.breaked)
             {
+                AudioPlayer.Instance.PlayClip("breakWall");
                 var renderer = breakableWall.GetComponentInChildren<SpriteRenderer>();
                 breakableWall.breaked = true;
                 breakableWall.GetComponentInChildren<MapUnit>().bIsWall = false;
