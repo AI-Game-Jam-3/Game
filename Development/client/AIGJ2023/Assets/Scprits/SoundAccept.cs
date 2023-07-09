@@ -25,13 +25,13 @@ public class SoundAccept : MonoBehaviour
         }
     }
 
-    //[HideInInspector] public bool isFire = false;
-    //[HideInInspector] public bool isShout = false;
-    //[HideInInspector] public bool isBreak = false;
-    public event Action OnShout;
-    public event Action OnFire;
-    public event Action OnBreak;
-    
+    [HideInInspector] public bool isFire = false;
+    [HideInInspector] public bool isShout = false;
+    [HideInInspector] public bool isBreak = false;
+    //public event Action OnShout;
+    //public event Action OnFire;
+    //public event Action OnBreak;
+
     //public OtherScript otherScript;
     [HideInInspector]public string mes;
 
@@ -151,18 +151,18 @@ public class SoundAccept : MonoBehaviour
         {
             case "hello":
                 // 执行声波点亮
-                //isShout = true;
-                OnShout?.Invoke();
+                isShout = true;
+                //OnShout?.Invoke();
                 break;
             case "break":
                 // 执行打破墙壁
-                //isBreak = true;
-                OnBreak?.Invoke();
+                isBreak = true;
+                //OnBreak?.Invoke();
                 break;
             case "fire":
                 // 执行点亮火把
-                //isFire = true;
-                OnFire?.Invoke();
+                isFire = true;
+                //OnFire?.Invoke();
                 break;
             default:
                 // 如果上述条件都不满足，则执行默认操作

@@ -132,6 +132,10 @@ public class InteractInScene : MonoBehaviour
                 breakableWall.breaked = true;
                 breakableWall.GetComponentInChildren<MapUnit>().bIsWall = false;
                 renderer.sprite = breakableWall.breakedSprite;
+
+                Material material = renderer.material;
+                material.SetTexture("_BaseMap", breakableWall.ground_tex);
+                Debug.Log("test");
             }
         }
     }
