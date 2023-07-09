@@ -27,7 +27,10 @@ public class EchoAnimator : MonoBehaviour
     {
         foreach (var frame in frames)
         {
-            renderer.sprite = frame;
+            if(renderer != null)
+            {
+                renderer.sprite = frame;
+            }
             yield return new WaitForSecondsRealtime(1.0f / framerate);
         }
         GameObject.Destroy(echoObject);

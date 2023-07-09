@@ -34,6 +34,7 @@ public class MapManager : MonoBehaviour
     }
 
     private void Start() {
+        currentMap = FindObjectOfType<RectMap>();
         ReadMap();
 
         SetMapColor();

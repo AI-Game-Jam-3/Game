@@ -32,6 +32,9 @@ public class Character : MonoBehaviour
 
         echoAnimator = GetComponentInChildren<EchoAnimator>();
         //StartCoroutine(Test());
+
+        var virtualCamera = FindObjectOfType<Cinemachine.CinemachineVirtualCamera>();
+        virtualCamera.Follow = transform;
     }
 
 
