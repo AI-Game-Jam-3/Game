@@ -597,7 +597,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b005f5c54144134e8c6cb6cc38fc4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  otherScript: {fileID: 0}
+  isFire: 0
+  isShout: 0
+  isBreak: 0
   mes: 
 --- !u!4 &899883359
 Transform:
@@ -1137,6 +1139,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2877388998249035456, guid: 327db678338923244aead5ce9134b9d8, type: 3}
+      propertyPath: levelNames.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2877388998249035456, guid: 327db678338923244aead5ce9134b9d8, type: 3}
+      propertyPath: levelNames.Array.data[5]
+      value: IntermediateScene
+      objectReference: {fileID: 0}
     - target: {fileID: 2877388998249035462, guid: 327db678338923244aead5ce9134b9d8, type: 3}
       propertyPath: m_Name
       value: GameManger
