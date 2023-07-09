@@ -9,7 +9,7 @@ public class AudioPlayer : MonoBehaviour
     public List<string> audioName;
     public List<AudioClip> audioClip;
 
-    private Dictionary<string, AudioSource> playingAudio;
+    private Dictionary<string, AudioSource> audioSource;
 
     private static AudioPlayer instance;
     public static AudioPlayer Instance
@@ -26,38 +26,26 @@ public class AudioPlayer : MonoBehaviour
 
     void Start()
     {
-        playingAudio = new Dictionary<string, AudioSource>();
-    }
-
-    IEnumerator WaitAndDestroyAudioSource(string name, AudioSource source, float time)
-    {
-        yield return new WaitForSeconds(time);
-        playingAudio.Remove(name);
-        GameObject.Destroy(source);
+        for(int i = 0; i < audioName.Count; i++)
+        {
+            var source = gameObject.AddComponent<AudioSource>();
+            source.clip = audioClip[i];
+            audioSource.Add(audioName[i], source);
+        }
     }
 
     public void PlayClip(string clip, float len = 0, float volumn = 1, bool isLoop = false)
     {
-        for(int i = 0; i < audioName.Count; i++)
-        {
-            if (audioName[i] == clip)
-            {
-                if(playingAudio.ContainsKey(clip))
-                    GameObject.Destroy(playingAudio[clip]);
-                var audioSource = gameObject.AddComponent<AudioSource>();
-                audioSource.clip = audioClip[i];
-                audioSource.volume = volumn;
-                audioSource.loop = isLoop;
-                audioSource.Play();
-                if (!isLoop)
-                {
-                    if (len == 0)
-                        StartCoroutine(WaitAndDestroyAudioSource(clip, audioSource, audioClip[i].length));
-                    else
-                        StartCoroutine(WaitAndDestroyAudioSource(clip, audioSource, len));
-                }
-            }
-        }
+        var source = audioSource[clip];
+        if (source.isPlaying) source.Stop();
+        source.volume = volumn;
+        source.loop = isLoop;
+        source.Play();
+    }
+
+    public void StopClip(string clip)
+    {
+        audioSource[clip].Stop();
     }
 
 }
