@@ -4832,6 +4832,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 0}
   interactInScene: {fileID: 0}
+  nextlevel: {fileID: 1276119734}
 --- !u!4 &392396097
 Transform:
   m_ObjectHideFlags: 0
@@ -15059,6 +15060,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbf1aacead499b14eba99de5ec7168b1, type: 3}
+--- !u!1 &1276119734 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8341892063865190010, guid: bbf1aacead499b14eba99de5ec7168b1, type: 3}
+  m_PrefabInstance: {fileID: 1276119733}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1284391836
 PrefabInstance:
   m_ObjectHideFlags: 0

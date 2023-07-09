@@ -2512,6 +2512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 0}
   interactInScene: {fileID: 0}
+  nextlevel: {fileID: 1193382469}
 --- !u!4 &392396097
 Transform:
   m_ObjectHideFlags: 0
@@ -7879,6 +7880,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbf1aacead499b14eba99de5ec7168b1, type: 3}
+--- !u!1 &1193382469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8341892063865190010, guid: bbf1aacead499b14eba99de5ec7168b1, type: 3}
+  m_PrefabInstance: {fileID: 1193382468}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1208848917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8400,6 +8406,7 @@ MonoBehaviour:
   message: 'Atticus: My father gave me a gift I haven''t forgotten; it was the only
     warmth left in my childhood.'
   triggered: 0
+  clearMessageTime: 3
 --- !u!4 &1314410641
 Transform:
   m_ObjectHideFlags: 0
