@@ -14490,6 +14490,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: collection_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4648561640208626010, guid: 97d92e9431988b74094e10530e03727d, type: 3}
+      propertyPath: message
+      value: 'The unreal thing is always fascinating. Achieve new item, Press "M"
+        to explore what happened to Atticus. '
+      objectReference: {fileID: 0}
     - target: {fileID: 4648561640208626011, guid: 97d92e9431988b74094e10530e03727d, type: 3}
       propertyPath: CollectName
       value: GameGirl
@@ -15965,6 +15970,11 @@ PrefabInstance:
     - target: {fileID: 4648561640208626009, guid: 97d92e9431988b74094e10530e03727d, type: 3}
       propertyPath: m_Name
       value: collection_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4648561640208626010, guid: 97d92e9431988b74094e10530e03727d, type: 3}
+      propertyPath: message
+      value: 'The unreal thing is always fascinating. Achieve new item, Press "M"
+        to explore what happened to Atticus. '
       objectReference: {fileID: 0}
     - target: {fileID: 4648561640208626011, guid: 97d92e9431988b74094e10530e03727d, type: 3}
       propertyPath: CollectName

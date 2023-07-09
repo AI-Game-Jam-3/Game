@@ -24,7 +24,7 @@ public class PanelAnim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Êó±ê×ó¼üÌø×ª³¡¾°
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½
         if(isGoingToClose && Input.GetMouseButtonDown(0))
         {
             StartCoroutine(HidePanel(panel));
@@ -33,10 +33,10 @@ public class PanelAnim : MonoBehaviour
 
 
     IEnumerator ShowPanel(GameObject GO)
-    {   
+    {
         float timer = 0;
-        while (timer <= 1) 
-        { 
+        while (timer <= 1)
+        {
             GO.transform.localScale = Vector3.one * showCurve.Evaluate(timer);
             timer += Time.deltaTime * animationSpeed;
             yield return new WaitForFixedUpdate();
@@ -56,7 +56,7 @@ public class PanelAnim : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         GO.transform.localScale = Vector3.zero;
-        GameManager.Instance.EnterLevel(4);
+        GameManager.Instance.EnterLevel(5);
 
     }
 
