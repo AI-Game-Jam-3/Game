@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ea2f18c3029e64382a3bb8c6d55514, type: 3}
+  m_Name: DaddyG2
+  m_EditorClassIdentifier: 
+  Title: Broken Gift
+  Icon: {fileID: 21300000, guid: 2b110e9bdd532ae4cbc4d53874e888c0, type: 3}
+  Content: 'Atticus was annoyed and upset by his peers'' lack of understanding, but
+    he didn''t dare to speak up and had to suffer in silence. But in one of the more
+    intense bullying incidents, the bear doll was viciously destroyed by his peers,
+    and Atticus felt overwhelmed with pain and loss.
+
+    Atticus felt he had lost
+    the only memento his father had left him, the only comfort and support he had.
+    He felt alone and helpless, unable to understand why his hobbies and habits had
+    led to such a result. For Atticus, this vicious attack may leave him feeling
+    alone, helpless, and unsettled. He may feel different from his peers and unable
+    to fit in with their circle.'
+  Unlock: 1

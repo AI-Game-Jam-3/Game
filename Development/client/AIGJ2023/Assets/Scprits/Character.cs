@@ -87,6 +87,7 @@ public class Character : MonoBehaviour
         if (IsCouldShout && IsGoingToShout)
         {
             echoAnimator.TriggerEchoAnimation();
+            AudioPlayer.Instance.PlayClip("echo");
             IsCouldShout = false;
             IsFadeOut = false;
             PostUpdateMapExplore();
@@ -133,10 +134,10 @@ public class Character : MonoBehaviour
             return;
         }
         transform.Translate(MoveDirection * MapManager.Instance.CELL_SIZE);
+        AudioPlayer.Instance.PlayClip("walk");
 
 
     }
-
 
     void CheckTransferGate()
     {

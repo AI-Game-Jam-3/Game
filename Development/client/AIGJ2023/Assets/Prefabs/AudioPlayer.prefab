@@ -45,5 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioName:
   - walk
+  - echo
+  - breakWall
   audioClip:
   - {fileID: 8300000, guid: 3b4c069eea7e7884fb71cf4a3d39902d, type: 3}
+  - {fileID: 8300000, guid: e620d97f13dcadd4a90dfd6e3a1f0a36, type: 3}
+  - {fileID: 8300000, guid: 9ed37e5c47e09f14f8a796f073044a89, type: 3}
