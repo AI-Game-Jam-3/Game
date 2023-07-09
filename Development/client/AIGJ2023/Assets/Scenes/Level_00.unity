@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: Press "WASD" to move forward, backward, left and right; press "Space"
-    or audio input "Ahhhhh" to light up the map.
+    or audio input "Hello" to light up the map.
   triggered: 0
 --- !u!4 &87915856
 Transform:

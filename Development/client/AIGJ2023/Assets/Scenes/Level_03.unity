@@ -13293,6 +13293,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: collection_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4648561640208626010, guid: 97d92e9431988b74094e10530e03727d, type: 3}
+      propertyPath: message
+      value: 'Vivian is the most terrible girl in the world. Achieve new item, Press
+        "M" to explore what happened to Atticus. '
+      objectReference: {fileID: 0}
     - target: {fileID: 4648561640208626011, guid: 97d92e9431988b74094e10530e03727d, type: 3}
       propertyPath: ground_tex
       value: 
@@ -16554,6 +16559,11 @@ PrefabInstance:
     - target: {fileID: 4648561640208626009, guid: 97d92e9431988b74094e10530e03727d, type: 3}
       propertyPath: m_Name
       value: collection_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4648561640208626010, guid: 97d92e9431988b74094e10530e03727d, type: 3}
+      propertyPath: message
+      value: 'Vivian is the sweetest girl in the world. Achieve new item, Press "M"
+        to explore what happened to Atticus. '
       objectReference: {fileID: 0}
     - target: {fileID: 4648561640208626011, guid: 97d92e9431988b74094e10530e03727d, type: 3}
       propertyPath: ground_tex

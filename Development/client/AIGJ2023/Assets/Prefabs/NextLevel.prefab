@@ -156,6 +156,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnterTime: 2
   QuitPhase1Time: 2
-  QuitPhase2Time: 2
+  QuitPhase2Time: 1
   LightingColor: {r: 1, g: 1, b: 1, a: 1}
   CameraZoomDelta: 0.2

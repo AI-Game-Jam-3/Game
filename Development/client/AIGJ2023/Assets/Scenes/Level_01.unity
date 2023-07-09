@@ -8844,7 +8844,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4648561640208626010, guid: 97d92e9431988b74094e10530e03727d, type: 3}
       propertyPath: message
-      value: But unfortunately, they cannot accompany you forever.
+      value: But unfortunately, they cannot accompany you forever. Achieve new item,
+        Press "M" to explore what happened to Atticus.
       objectReference: {fileID: 0}
     - target: {fileID: 4648561640208626011, guid: 97d92e9431988b74094e10530e03727d, type: 3}
       propertyPath: ground_tex
@@ -9917,7 +9918,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4648561640208626010, guid: 97d92e9431988b74094e10530e03727d, type: 3}
       propertyPath: message
-      value: Sometimes, friends will make you open. Got collection2.
+      value: Sometimes, something will make you happy.  Achieve new item, Press "M"
+        to explore what happened to Atticus.
       objectReference: {fileID: 0}
     - target: {fileID: 4648561640208626011, guid: 97d92e9431988b74094e10530e03727d, type: 3}
       propertyPath: ground_tex
