@@ -42,6 +42,8 @@ public class AchievementSystem : MonoBehaviour
         var panelWidth = panelRect.sizeDelta.x;
         panelRect.sizeDelta = new Vector2(panelWidth, panelHeight);
 
+        bool isShowAchievementContent = false;
+
         for(int i = 0; i < achievements.Count; i++)
         {
             var index = i;
@@ -63,6 +65,16 @@ public class AchievementSystem : MonoBehaviour
                     icon.color = Color.white;
                     title.text = achievements[index].Title;
                 });
+                if(!isShowAchievementContent)
+                {
+                    text.text = achievements[index].Content;
+                    text.fontSize = 30;
+                    text.lineSpacing = 1.1f;
+                    icon.sprite = achievements[index].Icon;
+                    icon.color = Color.white;
+                    title.text = achievements[index].Title;
+                    isShowAchievementContent = true;
+                }
             }
             else
             {
