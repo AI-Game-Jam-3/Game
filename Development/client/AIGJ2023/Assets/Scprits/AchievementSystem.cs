@@ -29,10 +29,11 @@ public class AchievementSystem : MonoBehaviour
         var panelRect = GameObject.Find("Content").GetComponent<RectTransform>();
         var buttonRect = GameObject.Find("Button").GetComponent<RectTransform>();
         var text = GameObject.Find("InputField").GetComponentInChildren<Text>();
-        text.text = "";
         var closeButton = GameObject.Find("CloseButton").GetComponent<Button>();
         var icon = GameObject.Find("Icon").GetComponent<Image>();
         var title = GameObject.Find("Title").GetComponent<Text>();
+        title.text = "";
+        text.text = "";
         closeButton.onClick.AddListener(Close);
 
         var buttonGap = -buttonRect.anchoredPosition.y;
