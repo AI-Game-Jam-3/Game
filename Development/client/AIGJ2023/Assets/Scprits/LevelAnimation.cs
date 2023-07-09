@@ -10,7 +10,7 @@ public class LevelAnimation : MonoBehaviour
     public float QuitPhase2Time = 2.0f;
     public Color LightingColor = Color.white;
     public float CameraZoomDelta = 0.2f;
-    private const int frameCount = 255;
+    private const int frameCount = 60;
     private SpriteRenderer[] spriteRenderers;
     private CinemachineVirtualCamera virtualCamera;
     private float cameraZoomDeltaAbs;
@@ -27,28 +27,30 @@ public class LevelAnimation : MonoBehaviour
 
     IEnumerator QuitAnimationPhase1()
     {
-        for(int i = 0; i < frameCount; i++)
+        var frame = QuitPhase1Time * frameCount;
+        for (int i = 0; i < frame; i++)
         {
             foreach(var renderer in spriteRenderers)
             {
                 var color = LightingColor;
-                color.a = (float)i/frameCount;
+                color.a = (float)i/ frame;
                 renderer.color = color;
-                virtualCamera.m_Lens.OrthographicSize += cameraZoomDeltaAbs / frameCount;
+                virtualCamera.m_Lens.OrthographicSize += cameraZoomDeltaAbs / frame;
             }
-            yield return new WaitForSecondsRealtime(QuitPhase1Time / frameCount);
+            yield return new WaitForSecondsRealtime(QuitPhase1Time / frame);
         }
         StartCoroutine(QuitAnimationPhase2());
     }
 
     IEnumerator QuitAnimationPhase2()
     {
-        for (int i = 0; i < frameCount; i++)
+        var frame = QuitPhase2Time * frameCount;
+        for (int i = 0; i < frame; i++)
         {
-            virtualCamera.m_Lens.OrthographicSize += maxCameraZoom / frameCount;
-            backgroundColor.a = (float)i/frameCount;
+            virtualCamera.m_Lens.OrthographicSize += maxCameraZoom / frame;
+            backgroundColor.a = (float)i/frame;
             backgroundRender.color = backgroundColor;
-            yield return new WaitForSecondsRealtime(QuitPhase2Time / frameCount);
+            yield return new WaitForSecondsRealtime(QuitPhase2Time / frame);
         }
         QuitAnimationFinish();
     }
@@ -74,13 +76,14 @@ public class LevelAnimation : MonoBehaviour
 
     private IEnumerator EnterAnimation()
     {
-        for(int i = 1; i <= frameCount; i++)
+        var frame = frameCount * EnterTime;
+        for(int i = 1; i <= frame; i++)
         {
             var color = Color.white;
-            color.a = (float)i/frameCount;
+            color.a = (float)i/frame;
             characterRenderer.color = color;
-            characterRenderer.size = characterSize * i / frameCount;
-            yield return new WaitForSecondsRealtime(EnterTime / frameCount);
+            characterRenderer.size = characterSize * i / frame;
+            yield return new WaitForSecondsRealtime(EnterTime / frame);
         }
         //EnterAnimationFinish();
     }
