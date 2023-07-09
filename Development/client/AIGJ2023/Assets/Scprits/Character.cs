@@ -152,8 +152,8 @@ public class Character : MonoBehaviour
             {
                 CurrentGate = gate;
                 CanTransfer = true;
+                return;
             }
-            return;
         }
         CurrentGate = null;
         CanTransfer = false;
