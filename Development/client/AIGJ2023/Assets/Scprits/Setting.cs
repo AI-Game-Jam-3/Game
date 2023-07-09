@@ -19,7 +19,7 @@ public class Setting : MonoBehaviour
     {
         openButton.onClick.AddListener(() =>
         {
-            if (ui == null && !AchievementSystem.Instance.HasPanel)
+            if (ui == null && UIManager.Instance.currentPanel == null)
                 Show();
         });
     }
@@ -43,14 +43,12 @@ public class Setting : MonoBehaviour
         // returnButton.onClick.AddListener(() => { controlPanel.SetActive(false); });
         returnButton.onClick.AddListener(() => { Close(); });
 
-        MessageBox.Instance.gameObject.SetActive(false);
-        AchievementSystem.Instance.HasPanel = true;
+        UIManager.Instance.HideOthers(this);
     }
 
     public void Close()
     {
-        AchievementSystem.Instance.HasPanel = false;
-        MessageBox.Instance.gameObject.SetActive(true);
+        UIManager.Instance.ShowOthers();
         GameObject.Destroy(ui);
     }
 

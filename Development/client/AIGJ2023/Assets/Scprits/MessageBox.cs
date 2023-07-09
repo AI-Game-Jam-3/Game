@@ -5,30 +5,6 @@ using UnityEngine.UI;
 
 public class MessageBox : MonoBehaviour
 {
-
-    private static MessageBox instance;
-    public static MessageBox Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = GameObject.FindObjectOfType<MessageBox>();
-            }
-            return instance;
-        }
-    }
-    private void Awake() {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-    }
-
     public Text messageText;
     // Start is called before the first frame update
     void Start()

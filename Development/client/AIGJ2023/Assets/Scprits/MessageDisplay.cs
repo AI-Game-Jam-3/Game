@@ -24,7 +24,7 @@ public class MessageDisplay : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.TryGetComponent<SmallTrigger>(out var comp) && !triggered)
         {
-            MessageBox.Instance.ShowMessage(message);
+            UIManager.Instance.messageBox.ShowMessage(message);
             onEnter?.Invoke();
         }
     }
@@ -32,7 +32,7 @@ public class MessageDisplay : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other) {
         if(other.TryGetComponent<SmallTrigger>(out var comp))
         {
-            MessageBox.Instance.ShowMessage("");
+            UIManager.Instance.messageBox.ShowMessage("");
             triggered = true;
             onExit?.Invoke();
         }

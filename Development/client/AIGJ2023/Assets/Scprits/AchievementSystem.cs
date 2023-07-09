@@ -5,29 +5,6 @@ using UnityEngine.UI;
 
 public class AchievementSystem : MonoBehaviour
 {
-    public bool HasPanel = false;
-    private static AchievementSystem instance;
-    public static AchievementSystem Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = GameObject.FindObjectOfType<AchievementSystem>();
-            }
-            return instance;
-        }
-    }
-    private void Awake() {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-    }
     public List<Achievement> achievements;
     public GameObject uiPrefab;
     private GameObject ui;
@@ -42,7 +19,8 @@ public class AchievementSystem : MonoBehaviour
 
     public void Show()
     {
-        MessageBox.Instance.gameObject.SetActive(false);
+        UIManager.Instance.HideOthers(this);
+
         ui = GameObject.Instantiate(uiPrefab);
         ui.transform.SetParent(this.transform);
         ui.name = "AchievementSystemUI";
@@ -52,6 +30,8 @@ public class AchievementSystem : MonoBehaviour
         var buttonRect = GameObject.Find("Button").GetComponent<RectTransform>();
         var text = GameObject.Find("InputField").GetComponentInChildren<Text>();
         text.text = "";
+        var closeButton = GameObject.Find("CloseButton").GetComponent<Button>();
+        closeButton.onClick.AddListener(Close);
 
         var buttonGap = -buttonRect.anchoredPosition.y;
         var buttonHeight = buttonRect.sizeDelta.y;
@@ -83,13 +63,11 @@ public class AchievementSystem : MonoBehaviour
 
         }
         GameObject.Destroy(button);
-        HasPanel = true;
     }
 
     public void Close()
     {
-        MessageBox.Instance.gameObject.SetActive(true);
-        HasPanel = false;
+        UIManager.Instance.ShowOthers();
         GameObject.Destroy(ui);
     }
 
@@ -97,7 +75,7 @@ public class AchievementSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
-            if (ui == null && !HasPanel)
+            if (ui == null && UIManager.Instance.currentPanel == null)
                 Show();
             else if(ui != null)
                 Close();
